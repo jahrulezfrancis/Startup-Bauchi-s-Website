@@ -1,0 +1,19 @@
+.card {
+    height: 440px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.title {
+    font-weight: 900;
+    color: var(--mantine-color-white);
+    line-height: 1.2;
+    font-size: 32px;
+    margin-top: var(--mantine-spacing-xs);
+    cursor: default;
+}

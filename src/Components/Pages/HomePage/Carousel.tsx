@@ -40,7 +40,7 @@ function Card({ image, title, description }: CardProps) {
             style={{ backgroundImage: `url(${image})` }}
             className={classes.card}
         >
-            <Stack justify="center" align="center" p="xl" w={"100%"} h={"100%"} bg={"rgba(9,1,3, 0.8)"}>
+            <Stack justify="center" align="center" p="xl" w={"100%"} h={"100%"} bg={"rgba(9,1,3, 0.65)"}>
                 <Title ta="center" order={3} className={classes.title}>
                     {title}
                 </Title>

@@ -14,12 +14,12 @@ export default function TestimonialsRenderer() {
     return (
         <Box>
                 <Center>
-            <Carousel align={"center"} slideSize="70%" height={400} slideGap={2} slidesToScroll={1} controlSize={27} loop>
+            <Carousel includeGapInSize={false} align={"center"} slideSize="70%" height={400} slideGap={10} slidesToScroll={1} controlSize={27} loop>
 
                 {TestimonialsData.map((item) => {
                     return (
-                        <Carousel.Slide key={item.id} bg={"white"}>
-                            <Stack mx={"auto"} w={"80%"} align="center">
+                        <Carousel.Slide p={20} key={item.id} bg={"red"}>
+                            <Stack ml={item.id ===1 ? "20px" : "0px"} mt={"100"} mx={"auto"} w={"80%"} align="center">
                                 <Stack>
                                     <Text lh={2}>{item.message}</Text>
                                     <Flex>

@@ -77,8 +77,8 @@ export default function App() {
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer pos={"relative"}>
-        <Stack p={10}>
+      <AppShell.Footer h={80} pos={"relative"}>
+        <Stack h={"100%"} align='center' justify="center" p={10}>
           <Text>This is the footer section</Text>
         </Stack>
       </AppShell.Footer>

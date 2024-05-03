@@ -10,6 +10,7 @@ import { PiPresentationLight } from "react-icons/pi"
 import ProgramsCard from "./ProgramsCard";
 import { useDisclosure } from '@mantine/hooks';
 import TimelineComponent from "../../Reuseables/TimelineComponent";
+import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
 
 
 
@@ -57,13 +58,12 @@ export default function Homepage() {
         );
     }
 
-
     return (
         <Box style={{ boxSizing: "border-box", overflow: "hidden" }} >
             <CarouselComponent />
             <Grid align="center">
                 <GridCol p={20} span={{ base: 11, md: 11, lg: 6 }}>
-                    <Image radius={10} fit="cover" h={"500px"} w={"98%"} src={AboutImg} />
+                    <Image ml={"auto"} fit="cover" h={"400px"} w={"50%"} src={AboutImg} />
                 </GridCol>
                 <GridCol span={{ base: 12, md: 12, lg: 6 }}>
                     <Stack w={{ base: "100%", md: "100%", lg: "50%" }}>
@@ -136,6 +136,13 @@ export default function Homepage() {
             </Stack>
 
             <Space h={100} />
+
+            <Box>
+                <Title ta="center" my={"20px"}>Success Stories and testimonials</Title>
+                <TestimonialsRenderer />
+            </Box>
+
+            <Space h={100} />
             {/* Call to action section for community engagement */}
             <Stack h={300} bg={"#eff2f4"}>
                 <Container size="lg" style={{ textAlign: 'center', marginTop: '50px', marginBottom: '50px' }}>
@@ -149,7 +156,7 @@ export default function Homepage() {
                 </Container>
             </Stack>
 
-            <Space h={100} />
+            {/* <Space h={100} /> */}
         </Box>
     )
 }

@@ -8,6 +8,7 @@ import ProgramsPage from "./Components/Pages/Programs/Programs";
 import ResourcesPage from "./Components/Pages/Resources/ResourcePage";
 import NewsPage from "./Components/Pages/News/NewsAndEvents";
 import TestimonialsPage from "./Components/Pages/Testimonials/TestimonialsPage";
+import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
 
 export default function App() {
 
@@ -72,10 +73,11 @@ export default function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/news-and-events" element={<NewsPage />} />
           <Route path="/success-stories" element={<TestimonialsPage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer>
+      <AppShell.Footer pos={"relative"}>
         <Stack p={10}>
           <Text>This is the footer section</Text>
         </Stack>

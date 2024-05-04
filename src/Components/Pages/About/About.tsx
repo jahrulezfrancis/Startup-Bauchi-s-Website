@@ -1,7 +1,12 @@
 import { Box, Stack, Title, Container, Grid, Card, Text, Flex, Space } from "@mantine/core";
 import "../../../index.css"
-import { GiBullseye, } from "react-icons/gi";
-import { FaRegEye } from "react-icons/fa";
+import { GiBullseye, GiTeacher, } from "react-icons/gi";
+import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
+import { LiaRocketSolid } from "react-icons/lia";
+import { GrGrow } from "react-icons/gr";
+import { PiPresentationLight } from "react-icons/pi";
+import ProgramsCard from "../HomePage/ProgramsCard";
+import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
 
 export default function AboutPage() {
     return (
@@ -30,7 +35,7 @@ export default function AboutPage() {
                                 </Flex>
                             </Card>
                         </Grid.Col>
-                        <Grid.Col  span={{ base: 12, md: 12, lg: 6 }}>
+                        <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
                             <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
                                 <Flex gap={5} direction={"column"} align={"center"}>
                                     <FaRegEye style={{ alignSelf: "center" }} fontSize={50} />
@@ -46,7 +51,48 @@ export default function AboutPage() {
                         </Grid.Col>
                     </Grid>
                 </Container>
+
+                <Space h={100} />
+
+                <Stack align="center">
+                    <Title lh={2} tt={"uppercase"}>Meet the individuals behind startup Bauchi</Title>
+                </Stack>
+
+
+                <Space h={100} />
+
+                <Stack p={30} bg={"#F0FBFD"}>
+                    <Title  ta="center">What we do at Startup Bauchi</Title>
+                    <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
+
+                    <Flex justify={"center"} gap={20} wrap={"wrap"}>
+                        <ProgramsCard icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
+
+                        <ProgramsCard icon={<GrGrow fontSize={50} />} title="Incubation" description="Support for startups in their early stages, including workspace, mentorship, and access to funding opportunities." />
+
+                        <ProgramsCard icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
+                    </Flex>
+
+                    <Flex justify={"center"} gap={30} wrap={"wrap"}>
+                        <ProgramsCard icon={<FaConnectdevelop fontSize={50} />} title="Networking Events" description="Regular meetups, pitch nights, and networking sessions to connect entrepreneurs, investors, and industry professionals." />
+
+                        <ProgramsCard icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
+                    </Flex>
+                </Stack>
+
+                <Space h={100} />
+
+                <Stack>
+                    <Title ta={"center"}>What our clients say about us</Title>
+                    <TestimonialsRenderer />
+                </Stack>
+
+                <Space h={100} />
+
+                <Stack>
+                    <Title ta={"center"}>Connect with us on all social media platforms</Title>
+                </Stack>
             </Flex>
-        </Box>
+        </Box >
     )
 }

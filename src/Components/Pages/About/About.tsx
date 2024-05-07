@@ -1,12 +1,13 @@
-import { Box, Stack, Title, Container, Grid, Card, Text, Flex, Space } from "@mantine/core";
+import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Tooltip, Button } from "@mantine/core";
 import "../../../index.css"
 import { GiBullseye, GiTeacher, } from "react-icons/gi";
-import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
+import { FaConnectdevelop, FaRegEye, FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { LiaRocketSolid } from "react-icons/lia";
 import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
+import { Link } from "react-router-dom";
 
 export default function AboutPage() {
     return (
@@ -62,7 +63,7 @@ export default function AboutPage() {
                 <Space h={100} />
 
                 <Stack p={30} bg={"#F0FBFD"}>
-                    <Title  ta="center">What we do at Startup Bauchi</Title>
+                    <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                     <Flex justify={"center"} gap={20} wrap={"wrap"}>
@@ -89,8 +90,28 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack>
-                    <Title ta={"center"}>Connect with us on all social media platforms</Title>
+                <Stack align="center" justify="center" mih={400} h={"auto"} bg={"black"}>
+                    <Title c={"white"} ta={"center"}>Connect with us on all social media platforms</Title>
+                    <Group gap={25} justify="center">
+                        <Tooltip position="bottom" label="Join Telegram commnity">
+                            <Link to={""}>
+                                <FaTelegram color="#1C7ED6" fontSize={50} />
+                            </Link>
+                        </Tooltip>
+
+                        <Tooltip position="bottom" label="Join Whatsapp community">
+                            <Link to={""}>
+                                <FaWhatsapp color="#1C7ED6" fontSize={50} />
+                            </Link>
+                        </Tooltip>
+
+                        <Tooltip position="bottom" label="Join Twitter community">
+                            <Link to={""}>
+                                <FaTwitter color="#1C7ED6" fontSize={50} />
+                            </Link>
+                        </Tooltip>
+                    </Group>
+                    <Button radius={10} h={"45px"} w={"250px"}>Click to learn more</Button>
                 </Stack>
             </Flex>
         </Box >

@@ -22,7 +22,7 @@ export default function TestimonialsRenderer() {
                                 <Stack ml={item.id === 1 ? "20px" : "0px"} mt={"100"} mx={"auto"} w={"80%"} align="center">
                                     <Stack>
                                         <Text lh={2}>{item.message}</Text>
-                                        <Flex>
+                                        <Flex gap={10}>
                                             <Avatar radius={"xl"}>{item.clientName}</Avatar>
                                             <Title>{item.clientName}</Title>
                                         </Flex>

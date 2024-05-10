@@ -24,8 +24,6 @@ export default function App() {
     { id: 6, path: "/success-stories", name: "Success Stories" }
   ]
 
-
-
   return (
     <AppShell
       header={{ height: 80 }}
@@ -35,7 +33,7 @@ export default function App() {
       <AppShell.Header>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-          <Group justify="space-between" style={{ flex: 1 }}>
+          <Group style={{ flex: 1 }} justify="space-between">
             <Link style={{ textDecoration: "none" }} to={"/"}>
               <Title size={"md"}>Startup Bauchi</Title>
             </Link>

@@ -1,4 +1,4 @@
-import { AppShell, Burger, Flex, Group, Stack, Text, Title } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Stack, Text, Title, Tooltip } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Link, NavLink, Outlet } from "react-router-dom"
 import { Route, Routes } from "react-router-dom";
@@ -9,6 +9,8 @@ import ResourcesPage from "./Components/Pages/Resources/ResourcePage";
 import NewsPage from "./Components/Pages/News/NewsAndEvents";
 import TestimonialsPage from "./Components/Pages/Testimonials/TestimonialsPage";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
+import { FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+
 
 export default function App() {
 
@@ -75,9 +77,28 @@ export default function App() {
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer h={80} pos={"relative"}>
-        <Stack h={"100%"} align='center' justify="center" p={10}>
-          <Text>This is the footer section</Text>
+      <AppShell.Footer h={"auto"} mih={100} pos={"relative"}>
+        <Stack py={"10px"} h={"100%"} align='center' justify="center" >
+          <Title mt={20} size={"md"} c={"black"} ta={"center"}>Connect with us on social media</Title>
+          <Group gap={25} justify="center">
+            <Tooltip position="bottom" label="Join Telegram commnity">
+              <Link to={""}>
+                <FaTelegram color="#1C7ED6" fontSize={50} />
+              </Link>
+            </Tooltip>
+
+            <Tooltip position="bottom" label="Join Whatsapp community">
+              <Link to={""}>
+                <FaWhatsapp color="#1C7ED6" fontSize={50} />
+              </Link>
+            </Tooltip>
+            <Tooltip position="bottom" label="Join Twitter community">
+              <Link to={""}>
+                <FaTwitter color="#1C7ED6" fontSize={50} />
+              </Link>
+            </Tooltip>
+          </Group>
+          <Text size={"md"}>© 2024 Startup Bauchi</Text>
         </Stack>
       </AppShell.Footer>
     </AppShell>

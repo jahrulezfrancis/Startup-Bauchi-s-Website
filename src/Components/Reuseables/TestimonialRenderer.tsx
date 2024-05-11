@@ -1,5 +1,6 @@
 import { Carousel } from "@mantine/carousel";
 import { Avatar, Box, Center, Flex, Stack, Text, Title } from "@mantine/core";
+import { ashBg } from "./Color";
 
 export default function TestimonialsRenderer() {
 
@@ -18,7 +19,7 @@ export default function TestimonialsRenderer() {
 
                     {TestimonialsData.map((item) => {
                         return (
-                            <Carousel.Slide p={20} key={item.id} bg={"#F0FBFD"}>
+                            <Carousel.Slide p={20} key={item.id} bg={ashBg}>
                                 <Stack ml={item.id === 1 ? "20px" : "0px"} mt={"100"} mx={"auto"} w={"80%"} align="center">
                                     <Stack>
                                         <Text lh={2}>{item.message}</Text>

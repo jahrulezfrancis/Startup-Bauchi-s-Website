@@ -1,16 +1,33 @@
-import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Tooltip, Button, Accordion } from "@mantine/core";
+import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Button, Accordion, TextInput } from "@mantine/core";
 import "../../../index.css"
 import { GiBullseye, GiTeacher, } from "react-icons/gi";
-import { FaConnectdevelop, FaRegEye, FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
 import { LiaRocketSolid } from "react-icons/lia";
 import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
-import { Link } from "react-router-dom";
 import { ashBg } from "../../Reuseables/Color";
+import { BsSendFill } from "react-icons/bs"
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
+
 
 export default function AboutPage() {
+
+
+    const [email, setEmail] = useState<string>("")
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function handleEmailSub(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+        if (emailRegex.test(email)) {
+            toast.error("The email you provided is not valid")
+        } else if (email.length === 0) {
+            toast.error("The email you provided is not valid")
+        }
+    }
 
     const faqList = [
         { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
@@ -115,27 +132,18 @@ export default function AboutPage() {
                 <Space h={100} />
 
                 <Stack align="center" justify="center" mih={400} h={"auto"} bg={ashBg}>
-                    <Title c={"black"} ta={"center"}>Connect with us on all social media platforms</Title>
-                    <Group gap={25} justify="center">
-                        <Tooltip position="bottom" label="Join Telegram commnity">
-                            <Link to={""}>
-                                <FaTelegram color="#1C7ED6" fontSize={50} />
-                            </Link>
-                        </Tooltip>
-
-                        <Tooltip position="bottom" label="Join Whatsapp community">
-                            <Link to={""}>
-                                <FaWhatsapp color="#1C7ED6" fontSize={50} />
-                            </Link>
-                        </Tooltip>
-
-                        <Tooltip position="bottom" label="Join Twitter community">
-                            <Link to={""}>
-                                <FaTwitter color="#1C7ED6" fontSize={50} />
-                            </Link>
-                        </Tooltip>
-                    </Group>
-                    <Button radius={10} h={"45px"} w={"250px"}>Click to learn more</Button>
+                    <form onSubmit={handleEmailSub}>
+                        <Stack align="center">
+                            <Title c={"black"}>Sign up for news letters</Title>
+                            <Text c="black">Sign up  for Startup Bauchi's news letter and be among the first people to know about upcoming events</Text>
+                            <Group gap={10}>
+                                <Group align="flex-end">
+                                    <TextInput radius={10} size="lg" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@startupbauchi.com" style={{ flex: 1 }} />
+                                    <Button radius={10} size="lg" type="submit" leftSection={<BsSendFill />}>Subscribe</Button>
+                                </Group>
+                            </Group>
+                        </Stack>
+                    </form>
                 </Stack>
             </Flex>
         </Box >

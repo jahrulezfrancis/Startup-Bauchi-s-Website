@@ -1,4 +1,4 @@
-import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Tooltip, Button } from "@mantine/core";
+import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Tooltip, Button, Accordion } from "@mantine/core";
 import "../../../index.css"
 import { GiBullseye, GiTeacher, } from "react-icons/gi";
 import { FaConnectdevelop, FaRegEye, FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
@@ -8,8 +8,23 @@ import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
 import { Link } from "react-router-dom";
+import { ashBg } from "../../Reuseables/Color";
 
 export default function AboutPage() {
+
+    const faqList = [
+        { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q2", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q3", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q4", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" }
+    ]
+    const items = faqList.map((item) => (
+        <Accordion.Item key={item.id} value={item.id}>
+            <Accordion.Control>{item.question}</Accordion.Control>
+            <Accordion.Panel>{item.answer}</Accordion.Panel>
+        </Accordion.Item>
+    ));
+
     return (
         <Box mt={80}>
             <Flex w={"100%"} direction={"column"} wrap={"wrap"}>
@@ -62,7 +77,7 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack p={30} bg={"#F0FBFD"}>
+                <Stack p={30} bg={ashBg}>
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
@@ -90,8 +105,17 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack align="center" justify="center" mih={400} h={"auto"} bg={"black"}>
-                    <Title c={"white"} ta={"center"}>Connect with us on all social media platforms</Title>
+                <Stack w={"100%"} align="center">
+                    <Title ta={"left"}>Frequently asked questions</Title>
+                    <Accordion w={"90%"} variant="separated" radius="lg" defaultValue="Apples">
+                        {items}
+                    </Accordion>
+                </Stack>
+
+                <Space h={100} />
+
+                <Stack align="center" justify="center" mih={400} h={"auto"} bg={ashBg}>
+                    <Title c={"black"} ta={"center"}>Connect with us on all social media platforms</Title>
                     <Group gap={25} justify="center">
                         <Tooltip position="bottom" label="Join Telegram commnity">
                             <Link to={""}>

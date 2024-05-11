@@ -1,31 +1,16 @@
-import { Box, Space, Stack, Title, Text, Flex, TextInput, Group, Button, } from "@mantine/core";
+import { Box, Space, Stack, Title, Text, Flex, } from "@mantine/core";
 import { GiTeacher, } from "react-icons/gi";
 import { FaConnectdevelop, } from "react-icons/fa";
 import { LiaRocketSolid } from "react-icons/lia";
-import { BsSendFill } from "react-icons/bs"
 import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
-import { FormEvent, useState } from "react";
-import toast from "react-hot-toast";
 import { ashBg } from "../../Reuseables/Color";
 
 
 
 export default function ProgramsPage() {
 
-    const [email, setEmail] = useState<string>("")
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    function handleEmailSub(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-        if (emailRegex.test(email)) {
-            toast.error("The email you provided is not valid")
-        } else if (email.length === 0) {
-            toast.error("The email you provided is not valid")
-        }
-    }
 
 
     return (
@@ -54,20 +39,7 @@ export default function ProgramsPage() {
             </Stack>
 
             <Space h={100} />
-            <Flex align={"center"} justify="center" bg={ashBg} h={"auto"} mih={300}>
-                <form onSubmit={handleEmailSub}>
-                    <Stack align="center">
-                        <Title c={"black"}>Sign up for news letters</Title>
-                        <Text c="black">Sign up  for Startup Bauchi's news letter and be among the first people to know about upcoming events</Text>
-                        <Group gap={10}>
-                            <Group align="flex-end">
-                                <TextInput radius={10} size="lg" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@gluesticker.com" style={{ flex: 1 }} />
-                                <Button radius={10} size="lg" type="submit" leftSection={<BsSendFill />}>Subscribe</Button>
-                            </Group>
-                        </Group>
-                    </Stack>
-                </form>
-            </Flex>
+            
 
             <Space h={100} />
         </Box>

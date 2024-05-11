@@ -1,15 +1,46 @@
-import { Box, Space, Stack, Title, Text, Flex } from "@mantine/core";
+import { Box, Space, Stack, Title, Text, Flex, Accordion, TextInput, Group, Button, } from "@mantine/core";
 import { GiTeacher, } from "react-icons/gi";
 import { FaConnectdevelop, } from "react-icons/fa";
 import { LiaRocketSolid } from "react-icons/lia";
+import { BsSendFill } from "react-icons/bs"
 import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
-
+import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 
 
 export default function ProgramsPage() {
+
+    const [email, setEmail] = useState<string>("")
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+    const faqList = [
+        { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q2", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q3", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q4", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" }
+    ]
+
+    function handleEmailSub(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+        if (emailRegex.test(email)) {
+            console.log("we are getting there")
+        } else {
+            toast.error("The email you provided is not valid")
+        }
+    }
+
+    const items = faqList.map((item) => (
+        <Accordion.Item key={item.id} value={item.id}>
+            <Accordion.Control>{item.question}</Accordion.Control>
+            <Accordion.Panel>{item.answer}</Accordion.Panel>
+        </Accordion.Item>
+    ));
 
     return (
         <Box mt={80}>
@@ -34,16 +65,30 @@ export default function ProgramsPage() {
                         <ProgramsCard icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
                     </Flex>
                 </Stack>
+            </Stack>
 
+            <Space h={100} />
+            <Stack w={"100%"} align="center">
+                <Title ta={"left"}>Frequently asked questions</Title>
+                <Accordion w={"90%"} variant="separated" radius="lg" defaultValue="Apples">
+                    {items}
+                </Accordion>
             </Stack>
             <Space h={100} />
-            <Title>Individual program section</Title>
-            <Space h={100} />
-            <Title>Frequently asked questions</Title>
-            <Space h={100} />
-            <Title>Call to actions</Title>
+            <Stack>
+                <form onSubmit={handleEmailSub}>
+                    <Title>Sign up for news letters</Title>
+                    <Text>Sign up  for Startup Bauchi's news letter and be among the first people to know about upcoming events</Text>
+                    <Group gap={10}>
+                        <Group align="flex-end">
+                            <TextInput onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@gluesticker.com" style={{ flex: 1 }} />
+                            <Button type="submit" leftSection={<BsSendFill />} onClick={close}>Subscribe</Button>
+                        </Group>
+                    </Group>
+                </form>
+            </Stack>
 
-
+            <Space h={100} />
         </Box>
     )
 }

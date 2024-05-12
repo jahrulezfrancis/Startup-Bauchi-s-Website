@@ -87,13 +87,6 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack align="center">
-                    <Title lh={2} tt={"uppercase"}>Meet the individuals behind startup Bauchi</Title>
-                </Stack>
-
-
-                <Space h={100} />
-
                 <Stack p={30} bg={ashBg}>
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>

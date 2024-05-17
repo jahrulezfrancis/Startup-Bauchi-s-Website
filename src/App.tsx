@@ -5,11 +5,13 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from "./Components/Pages/HomePage/Homepage";
 import AboutPage from "./Components/Pages/About/About";
 import ProgramsPage from "./Components/Pages/Programs/Programs";
-import ResourcesPage from "./Components/Pages/Resources/ResourcePage";
-import NewsPage from "./Components/Pages/News/NewsAndEvents";
+import ResourcesPage from "./Components/Pages/GetInvolved/GetInvolved";
 import TestimonialsPage from "./Components/Pages/Testimonials/TestimonialsPage";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
 import { FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import BlogPage from './Components/Pages/News/Blog';
+import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
+import StartupPage from './Components/Pages/Startups/Startups';
 
 
 export default function App() {
@@ -21,9 +23,11 @@ export default function App() {
     // { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/about", name: "About us" },
     { id: 3, path: "/programs", name: "Programs" },
-    { id: 4, path: "/resources", name: "Resources" },
-    { id: 5, path: "/news-and-events", name: "News & Events" },
-    { id: 6, path: "/success-stories", name: "Success Stories" }
+    { id: 4, path: "/blog", name: "Blog" },
+    { id: 5, path: "/success-stories", name: "Success Stories" },
+    { id: 6, path: "/get-involved", name: "Get Involved" },
+    { id: 7, path: "/startups", name: "Startups" },
+
   ]
 
   return (
@@ -65,14 +69,16 @@ export default function App() {
           })}
         </Flex>
       </AppShell.Navbar>
-      <AppShell.Main m={0} p={0}>
+      <AppShell.Main mt={80} m={0} p={0}>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/news-and-events" element={<NewsPage />} />
           <Route path="/success-stories" element={<TestimonialsPage />} />
+          <Route path='get-involved' element={<GetInvolvedPage />} />
+          <Route path='startups' element={<StartupPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Outlet />
@@ -83,18 +89,18 @@ export default function App() {
           <Group gap={25} justify="center">
             <Tooltip position="bottom" label="Join Telegram commnity">
               <Link to={""}>
-                <FaTelegram color="#1C7ED6" fontSize={50} />
+                <FaTelegram color="#1C7ED6" fontSize={25} />
               </Link>
             </Tooltip>
 
             <Tooltip position="bottom" label="Join Whatsapp community">
               <Link to={""}>
-                <FaWhatsapp color="#1C7ED6" fontSize={50} />
+                <FaWhatsapp color="#1C7ED6" fontSize={25} />
               </Link>
             </Tooltip>
             <Tooltip position="bottom" label="Join Twitter community">
               <Link to={""}>
-                <FaTwitter color="#1C7ED6" fontSize={50} />
+                <FaTwitter color="#1C7ED6" fontSize={25} />
               </Link>
             </Tooltip>
           </Group>

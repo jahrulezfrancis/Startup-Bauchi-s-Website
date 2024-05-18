@@ -6,12 +6,12 @@ import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import { ashBg } from "../../Reuseables/Color";
+import { eventData } from "./programs.data";
+import EventCard from "./EventsCard";
 
 
 
 export default function ProgramsPage() {
-
-
 
     return (
         <Box mt={80}>
@@ -39,8 +39,14 @@ export default function ProgramsPage() {
             </Stack>
 
             <Space h={100} />
-            
-
+            <Stack>
+                <Title ta={"center"}>Explore our past and upcoming events</Title>
+                <Flex justify={"center"} gap={10} wrap={"wrap"} p={30}>
+                    {eventData.map((item) => {
+                        return <EventCard key={item.id} eventTitle={item.title} eventDescription={item.description} eventImage={item.image} eventDone={item.isDone} />
+                    })}
+                </Flex>
+            </Stack>
             <Space h={100} />
         </Box>
     )

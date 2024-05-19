@@ -12,6 +12,7 @@ import { FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import BlogPage from './Components/Pages/News/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
+import "./index.css"
 
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
 
   return (
     <AppShell
+    className='app-shell'
       header={{ height: 80 }}
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"

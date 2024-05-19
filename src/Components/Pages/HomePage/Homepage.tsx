@@ -5,12 +5,17 @@ import { Link } from "react-router-dom";
 import { GrGrow } from "react-icons/gr"
 import { GiTeacher } from "react-icons/gi"
 import { LiaRocketSolid } from "react-icons/lia"
+import { CgCommunity } from "react-icons/cg";
+import { MdEventAvailable } from "react-icons/md";
 import { FaConnectdevelop, FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa"
+import { FaArrowsDownToPeople } from "react-icons/fa6"
+import { IoPeople } from "react-icons/io5"
 import { PiPresentationLight } from "react-icons/pi"
 import ProgramsCard from "./ProgramsCard";
 import { useDisclosure } from '@mantine/hooks';
 import TimelineComponent from "../../Reuseables/TimelineComponent";
-import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
+import StatisticsCard from "./StatsCard";
+import { PrimaryGreen } from "../../Reuseables/Color";
 
 
 
@@ -63,10 +68,10 @@ export default function Homepage() {
             <CarouselComponent />
             <Grid align="center">
                 <GridCol p={20} span={{ base: 11, md: 11, lg: 6 }}>
-                    <Image ml={"auto"} fit="cover" h={"400px"} w={"50%"} src={AboutImg} />
+                    <Image ml={"auto"} fit="cover" h={"400px"} w={"80%"} src={AboutImg} />
                 </GridCol>
                 <GridCol span={{ base: 12, md: 12, lg: 6 }}>
-                    <Stack w={{ base: "100%", md: "100%", lg: "50%" }}>
+                    <Stack w={{ base: "100%", md: "100%", lg: "80%" }}>
                         <Title>About us</Title>
                         <Text>Startup Bauchi is a dynamic organization committed to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. We provide a comprehensive suite of programs and services designed to bridge the gap between your vision and achieving remarkable success.</Text>
                         <Link to={"/about"} >
@@ -130,17 +135,38 @@ export default function Homepage() {
 
             <Space h={100} />
 
+            <Stack justify="center" align="center" mih={200} h={"auto"} bg={"#F5F7FA"}>
+                <Group align="start">
+                    <Stack lh={0} gap={0}>
+                        <Title>Empowering <span style={{color: PrimaryGreen}}>Startups</span></Title> <br />
+                        <Text>For a better and innovative ecosystem</Text>
+                    </Stack>
+                    <Space w={{ md: 0, lg: "50px" }} />
+                    <Stack>
+                        <Group justify="space-between">
+                            <StatisticsCard Icon={<IoPeople color={PrimaryGreen} />} beneficiaries="Members" statsNumber={1000} />
+                            <StatisticsCard Icon={<CgCommunity color={PrimaryGreen} />} beneficiaries="Startups Supporting" statsNumber={100} />
+                        </Group>
+                        <Group justify="space-between">
+                            <StatisticsCard Icon={<MdEventAvailable color={PrimaryGreen} />} beneficiaries="Event" statsNumber={10} />
+                            <StatisticsCard Icon={< FaArrowsDownToPeople color={PrimaryGreen} />} beneficiaries="Volunteers" statsNumber={20} />
+                        </Group>
+                    </Stack>
+                </Group>
+            </Stack>
+
+
+            <Space h={100} />
+
             <Stack py={10} bg={" linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent)"} mx={20} style={{ borderRadius: 10, }} >
                 <Title py={10} ta={"center"}>Past and upcoming events higlight</Title>
                 <TimelineComponent />
             </Stack>
 
-            <Space h={100} />
-
-            <Box>
+            {/* <Box>
                 <Title ta="center" my={"20px"}>Success Stories and testimonials</Title>
                 <TestimonialsRenderer />
-            </Box>
+            </Box> */}
 
             <Space h={100} />
             {/* Call to action section for community engagement */}

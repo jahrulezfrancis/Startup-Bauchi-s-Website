@@ -11,3 +11,7 @@
 		opacity: 1;
 	}
 }
+
+.app-shell h1{
+	font-family: "Rubik", sans-serif;
+}

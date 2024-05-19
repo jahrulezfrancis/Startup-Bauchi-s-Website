@@ -13,6 +13,7 @@ import BlogPage from './Components/Pages/News/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
+import { ashBg } from './Components/Reuseables/Color';
 
 
 export default function App() {
@@ -38,7 +39,7 @@ export default function App() {
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header>
+      <AppShell.Header bg={ashBg}>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group style={{ flex: 1 }} justify="space-between">

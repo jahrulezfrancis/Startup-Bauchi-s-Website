@@ -10,7 +10,7 @@ interface cardProps {
 export default function ProgramsCard(props: cardProps) {
     return (
         <Box>
-            <Card h={250} w={{ base: "400px" }} p={"xl"} shadow="sm" radius="md" withBorder>
+            <Card h={250} w={{ base: "90vw", md: "400px", lg: "400px" }} p={"xl"} shadow="sm" radius="md" withBorder>
                 <Card.Section>
                     <Stack align="center">
                         {props.icon}

@@ -38,9 +38,9 @@ export default function GetInvolvedPage() {
     };
 
     return (
-        <Box mt={80}>
-            <Stack align="center">
-                <Title mt={50} ta="center">Get Involved</Title>
+        <Box pt={20}>
+            <Stack  align="center">
+                <Title ta="center">Get Involved</Title>
                 <Text mb={50} ta="center" w={{ base: "80%", md: "70%", lg: "500px" }}>
                     Join us in making a difference. Whether you're looking to volunteer your time, share your expertise, or support our initiatives, there are many ways to get involved with Startup Bauchi.
                 </Text>

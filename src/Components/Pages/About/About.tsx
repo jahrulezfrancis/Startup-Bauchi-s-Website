@@ -1,4 +1,4 @@
-import { Box, Stack, Title, Container, Group, Grid, Card, Text, Flex, Space, Button, Accordion, TextInput } from "@mantine/core";
+import { Box, Stack, Title, Group, Grid, Card, Text, Flex, Space, Button, Accordion, TextInput } from "@mantine/core";
 import "../../../index.css"
 import { GiBullseye, GiTeacher, } from "react-icons/gi";
 import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
@@ -45,16 +45,14 @@ export default function AboutPage() {
     return (
         <Box mt={80}>
             <Flex w={"100%"} direction={"column"} wrap={"wrap"}>
-                <Stack align="center">
-                    <Stack ta={"center"} align="center" p={20} w={{ base: "full", md: "500px", lg: "700px" }}>
-                        <Title tt={"uppercase"}>About Us</Title>
-                        <Text lh={"30px"} fw={400} size="18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio a dolore porro similique, perspiciatis fugit praesentium sequi possimus aspernatur expedita voluptas minima rem voluptate unde esse fugiat id accusantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facilis excepturi sapiente deserunt aliquam iure ab quae et placeat iusto voluptate beatae impedit, alias neque asperiores qui sunt dolores ex.</Text>
-                    </Stack>
+                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" p={20} w={{ base: "100%", md: "500px", lg: "700px" }}>
+                    <Title tt={"uppercase"}>About Startup Bauchi</Title>
+                    <Text lh={"30px"} fw={400} size="18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio a dolore porro similique, perspiciatis fugit praesentium sequi possimus aspernatur expedita voluptas minima rem voluptate unde esse fugiat id accusantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facilis excepturi sapiente deserunt aliquam iure ab quae et placeat iusto voluptate beatae impedit, alias neque asperiores qui sunt dolores ex.</Text>
                 </Stack>
-                <Space h={100} />
-                <Container size="lg">
+                <Space h={80} />
+                <Stack maw={"100vw"}>
                     <Grid gutter="35px">
-                        <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
+                        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
                             <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
                                 <Flex gap={5} direction={"column"} align={"center"}>
                                     <GiBullseye style={{ alignSelf: "center" }} fontSize={50} />
@@ -68,7 +66,7 @@ export default function AboutPage() {
                                 </Flex>
                             </Card>
                         </Grid.Col>
-                        <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
+                        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
                             <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
                                 <Flex gap={5} direction={"column"} align={"center"}>
                                     <FaRegEye style={{ alignSelf: "center" }} fontSize={50} />
@@ -83,11 +81,11 @@ export default function AboutPage() {
                             </Card>
                         </Grid.Col>
                     </Grid>
-                </Container>
+                </Stack>
 
                 <Space h={100} />
 
-                <Stack p={30} bg={ashBg}>
+                <Stack maw={"100vw"} p={30} bg={ashBg}>
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
@@ -115,16 +113,16 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack w={"100%"} align="center">
-                    <Title ta={"left"}>Frequently asked questions</Title>
-                    <Accordion w={"90%"} variant="separated" radius="lg" defaultValue="Apples">
+                <Stack maw={"100vw"} align="center">
+                    <Title ta={"center"}>Frequently asked questions</Title>
+                    <Accordion style={{ alignSelf: "center" }} w={"95%"} variant="separated" radius="lg">
                         {items}
                     </Accordion>
                 </Stack>
 
                 <Space h={100} />
 
-                <Stack align="center" justify="center" mih={400} h={"auto"} bg={ashBg}>
+                <Stack align="center" justify="center" px={20} mih={400} h={"auto"} bg={ashBg}>
                     <form onSubmit={handleEmailSub}>
                         <Stack align="center">
                             <Title c={"black"}>Sign up for news letters</Title>

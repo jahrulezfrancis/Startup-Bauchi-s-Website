@@ -18,7 +18,7 @@ import { ashBg } from './Components/Reuseables/Color';
 
 export default function App() {
 
-  const [opened, { toggle }] = useDisclosure();
+  const [opened, { close, toggle }] = useDisclosure();
 
 
   const navlinks = [
@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <AppShell
-    className='app-shell'
+      className='app-shell'
       header={{ height: 80 }}
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
@@ -51,7 +51,7 @@ export default function App() {
                 {navlinks.map((item) => {
                   return (
                     <NavLink style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                      <Text style={{ textDecoration: "none" }} size='md' >{item.name}</Text>
+                      <Text style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )
                 })}
@@ -62,11 +62,11 @@ export default function App() {
       </AppShell.Header>
 
       <AppShell.Navbar py="md" px={4}>
-        <Flex direction="column">
+        <Flex px={10} gap={10} direction="column">
           {navlinks.map((item) => {
             return (
-              <NavLink style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                <Text size='lg' >{item.name}</Text>
+              <NavLink onClick={close} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
+                <Text p={10} fw={500} size='20px'>{item.name}</Text>
               </NavLink>
             )
           })}

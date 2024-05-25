@@ -43,15 +43,16 @@ export default function AboutPage() {
     ));
 
     return (
-        <Box mt={80}>
-            <Flex w={"100%"} direction={"column"} wrap={"wrap"}>
-                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" p={20} w={{ base: "100%", md: "500px", lg: "700px" }}>
+        <Box style={{ overflowX: "hidden" }} mt={80}>
+            <Flex direction={"column"}>
+
+                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" p={20} w={{ base: "100vw", md: "500px", lg: "700px" }}>
                     <Title tt={"uppercase"}>About Startup Bauchi</Title>
                     <Text lh={"30px"} fw={400} size="18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio a dolore porro similique, perspiciatis fugit praesentium sequi possimus aspernatur expedita voluptas minima rem voluptate unde esse fugiat id accusantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facilis excepturi sapiente deserunt aliquam iure ab quae et placeat iusto voluptate beatae impedit, alias neque asperiores qui sunt dolores ex.</Text>
                 </Stack>
                 <Space h={80} />
-                <Stack maw={"100vw"}>
-                    <Grid gutter="35px">
+                <Stack>
+                    <Grid p={20} gutter="35px">
                         <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
                             <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
                                 <Flex gap={5} direction={"column"} align={"center"}>
@@ -66,6 +67,7 @@ export default function AboutPage() {
                                 </Flex>
                             </Card>
                         </Grid.Col>
+                        {/* <Space h={100} hiddenFrom="lg" /> */}
                         <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
                             <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
                                 <Flex gap={5} direction={"column"} align={"center"}>
@@ -85,7 +87,7 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack maw={"100vw"} p={30} bg={ashBg}>
+                <Stack p={30} bg={ashBg}>
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
@@ -122,7 +124,7 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack align="center" justify="center" px={20} mih={400} h={"auto"} bg={ashBg}>
+                <Stack maw={"100vw"} align="center" justify="center" px={20} mih={400} h={"auto"} bg={ashBg}>
                     <form onSubmit={handleEmailSub}>
                         <Stack align="center">
                             <Title c={"black"}>Sign up for news letters</Title>
@@ -137,6 +139,6 @@ export default function AboutPage() {
                     </form>
                 </Stack>
             </Flex>
-        </Box >
+        </Box>
     )
 }

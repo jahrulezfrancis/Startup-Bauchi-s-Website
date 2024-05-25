@@ -6,8 +6,8 @@ export default function BlogPage() {
     return (
         <Box>
             <Grid>
-                <Grid.Col p={{ base: "0px", md: "0px", lg: "20px" }} span={{ base: 12, md: 6, lg: 8 }}>
-                    <Title>Latest Post</Title>
+                <Grid.Col px={20} p={{ base: "10px", md: "0px", lg: "20px" }} span={{ base: 12, md: 6, lg: 8 }}>
+                    <Title ta={"center"} mt={10}>Latest Post</Title>
                     <Group>
                         {
                             postData.map((item) => {
@@ -17,8 +17,9 @@ export default function BlogPage() {
                     </Group>
 
                 </Grid.Col>
-                <Grid.Col p={{ base: "0px", md: "0px", lg: "20px" }} span={{ base: 12, md: 6, lg: 4 }}>
-                    <Title>Featured post</Title>
+
+                <Grid.Col mt={{ base: 70, md: 0, lg: 0 }} px={20} p={{ base: "0px", md: "0px", lg: "20px" }} span={{ base: 12, md: 6, lg: 4 }}>
+                    <Title my={10} ta={"center"}>Featured post</Title>
                     <Group>
                         {
                             postData.map((item) => {

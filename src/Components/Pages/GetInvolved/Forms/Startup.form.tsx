@@ -28,7 +28,7 @@ export default function StartupSignUpForm() {
 
     return (
         <Box px={10} pt={20}>
-            <Flex w={"100%"} direction={"column"} justify="center" align={{ base: "", md: "center" }}>
+            <Flex w={"100%"} direction={"column"} justify="center" align={{ base: "start", md: "center" }}>
                 <Flex justify="center" gap={20} wrap="wrap">
                     <GoOrganization fontSize={80} />
                 </Flex>

@@ -31,8 +31,8 @@ export default function VolunteerSignUpForm() {
     };
 
     return (
-        <Box pt={20}>
-            <Stack align="center">
+        <Box px={10} pt={20}>
+        <Flex w={"100%"} direction={"column"} justify="center" align={{ base: "", md: "center" }}>
                 <Flex justify="center" gap={20} wrap="wrap">
                     <FaHandsHelping fontSize={80} />
                 </Flex>
@@ -65,7 +65,7 @@ export default function VolunteerSignUpForm() {
                         <Button w={"100%"} radius={10} mt={30} size="md" type="submit">Submit Application</Button>
                     </Stack>
                 </form>
-            </Stack>
+            </Flex>
             <Space h={100} />
         </Box>
     )

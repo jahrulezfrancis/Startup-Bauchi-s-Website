@@ -35,8 +35,7 @@ export default function StartupSignUpForm() {
                 <form onSubmit={handleFormSubmit}>
                     <Stack style={{ alignSelf: "center" }} align="center" w={{ base: "100%", md: "100%", lg: "500px" }}>
 
-                        <TextInput w={"100%"} label="Company Name" radius={8} size="md" name="companyName" value={formData.companyName} onChange={handleChange}
-                            placeholder="Company or startup name" required />
+                        <TextInput w={"100%"} label="Company Name" radius={8} size="md" name="companyName" value={formData.companyName} onChange={handleChange} placeholder="Company or startup name" required />
 
                         <TextInput w={"100%"} label="Company email address" radius={8} size="md" name="companyName" value={formData.companyEmail} onChange={handleChange} type="email" placeholder="Your Email" required />
 

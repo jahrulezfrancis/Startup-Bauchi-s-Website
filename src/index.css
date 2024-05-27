@@ -12,10 +12,15 @@
 	}
 }
 
-.app-shell h1{
+.app-shell h1 {
 	font-family: "Rubik", sans-serif;
 }
 
-body a{
+body a {
 	text-decoration: none;
+}
+
+.active {
+	color: red;
+	text-decoration: underline;
 }

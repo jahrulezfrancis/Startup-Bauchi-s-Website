@@ -49,7 +49,7 @@ export default function StartupSignUpForm() {
                     (error) => {
                         console.log('FAILED...', error.text);
                         setLoading(false)
-                        return notifications.show({ title: "Registration Failed", message: "Your Application was not sent successfully. Please try again", color: "teal" })
+                        return notifications.show({ title: "Registration Failed", message: "Your Application was not sent successfully. Please try again", color: "red" })
                     },
                 );
         } else {

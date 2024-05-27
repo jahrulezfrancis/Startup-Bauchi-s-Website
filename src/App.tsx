@@ -1,6 +1,6 @@
 import { AppShell, Burger, Flex, Group, Stack, Text, Title, Tooltip } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Link, NavLink, Outlet } from "react-router-dom"
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom"
 import { Route, Routes } from "react-router-dom";
 import Homepage from "./Components/Pages/HomePage/Homepage";
 import AboutPage from "./Components/Pages/About/About";
@@ -20,6 +20,7 @@ export default function App() {
 
   const [opened, { close, toggle }] = useDisclosure();
 
+  const location = useLocation()
 
   const navlinks = [
     // { id: 1, path: "/", name: "Home" },
@@ -50,7 +51,7 @@ export default function App() {
               <Flex style={{ gap: 15 }}>
                 {navlinks.map((item) => {
                   return (
-                    <NavLink style={{ textDecoration: "none" }} key={item.id} to={item.path}>
+                    <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
                       <Text style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )

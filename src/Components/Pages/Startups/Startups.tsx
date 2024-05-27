@@ -22,7 +22,7 @@ export default function StartupPage() {
     ];
 
     return (
-        <Box mt={80}>
+        <Box pt={20}>
             <Stack>
                 <Stack p={10}>
                     <Title ta="center">Startups Powered by Us</Title>

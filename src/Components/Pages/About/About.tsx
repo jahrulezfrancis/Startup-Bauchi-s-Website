@@ -43,11 +43,10 @@ export default function AboutPage() {
     ));
 
     return (
-        <Box style={{ overflowX: "hidden" }} mt={80}>
+        <Box pt={20} style={{ overflowX: "hidden" }}>
             <Flex direction={"column"}>
-
-                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" p={20} w={{ base: "100vw", md: "500px", lg: "700px" }}>
-                    <Title tt={"uppercase"}>About Startup Bauchi</Title>
+                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "700px" }}>
+                    <Title>About Startup Bauchi</Title>
                     <Text lh={"30px"} fw={400} size="18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio a dolore porro similique, perspiciatis fugit praesentium sequi possimus aspernatur expedita voluptas minima rem voluptate unde esse fugiat id accusantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facilis excepturi sapiente deserunt aliquam iure ab quae et placeat iusto voluptate beatae impedit, alias neque asperiores qui sunt dolores ex.</Text>
                 </Stack>
                 <Space h={80} />

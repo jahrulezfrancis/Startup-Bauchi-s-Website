@@ -71,13 +71,13 @@ export default function Homepage() {
                     <Image ml={"auto"} fit="cover" h={"400px"} w={"80%"} src={AboutImg} />
                 </GridCol>
                 <GridCol span={{ base: 12, md: 12, lg: 6 }}>
-                    <Stack w={{ base: "100%", md: "100%", lg: "80%" }}>
+                    <Flex gap={10} direction={"column"} p={10} align={{ base: "center", md: "start", lg: "start" }} w={{ base: "100%", md: "100%", lg: "80%" }}>
                         <Title>About us</Title>
-                        <Text>Startup Bauchi is a dynamic organization committed to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. We provide a comprehensive suite of programs and services designed to bridge the gap between your vision and achieving remarkable success.</Text>
+                        <Text ta={{ base: "center", md: "start", lg: "start" }}>Startup Bauchi is a dynamic organization committed to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. We provide a comprehensive suite of programs and services designed to bridge the gap between your vision and achieving remarkable success.</Text>
                         <Link to={"/about"} >
                             <Button>More about us</Button>
                         </Link>
-                    </Stack>
+                    </Flex>
                 </GridCol>
             </Grid>
             <Space h={100} />
@@ -135,25 +135,25 @@ export default function Homepage() {
 
             <Space h={100} />
 
-            <Stack justify="center" align="center" mih={200} h={"auto"} bg={"#F5F7FA"}>
-                <Group align="start">
-                    <Stack lh={0} gap={0}>
-                        <Title>Empowering <span style={{color: PrimaryGreen}}>Startups</span></Title> <br />
-                        <Text>For a better and innovative ecosystem</Text>
+            <Flex justify="center" py={20} align="center" w={"100%"} mih={200} h={"auto"} bg={"#F5F7FA"}>
+                <Flex p={20} direction={{ base: "column" }} h={"auto"} justify="center" w={"100%"} >
+                    <Stack ta={{ base: "start", md: "start", lg:"center"}} lh={0} gap={0}>
+                        <Title mb={20}>Empowering <span style={{ color: PrimaryGreen }}>Startups</span></Title> <br />
+                        {/* <Text>For a better and innovative ecosystem</Text> */}
                     </Stack>
                     <Space w={{ md: 0, lg: "50px" }} />
-                    <Stack>
-                        <Group justify="space-between">
+                    <Stack gap={0} align="center">
+                        <Flex wrap={"wrap"} gap={0}>
                             <StatisticsCard Icon={<IoPeople color={PrimaryGreen} />} beneficiaries="Members" statsNumber={1000} />
                             <StatisticsCard Icon={<CgCommunity color={PrimaryGreen} />} beneficiaries="Startups Supporting" statsNumber={100} />
-                        </Group>
-                        <Group justify="space-between">
+                        </Flex>
+                        <Flex wrap={"wrap"} gap={0}>
                             <StatisticsCard Icon={<MdEventAvailable color={PrimaryGreen} />} beneficiaries="Event" statsNumber={10} />
                             <StatisticsCard Icon={< FaArrowsDownToPeople color={PrimaryGreen} />} beneficiaries="Volunteers" statsNumber={20} />
-                        </Group>
+                        </Flex>
                     </Stack>
-                </Group>
-            </Stack>
+                </Flex>
+            </Flex>
 
 
             <Space h={100} />
@@ -162,11 +162,6 @@ export default function Homepage() {
                 <Title py={10} ta={"center"}>Past and upcoming events higlight</Title>
                 <TimelineComponent />
             </Stack>
-
-            {/* <Box>
-                <Title ta="center" my={"20px"}>Success Stories and testimonials</Title>
-                <TestimonialsRenderer />
-            </Box> */}
 
             <Space h={100} />
             {/* Call to action section for community engagement */}

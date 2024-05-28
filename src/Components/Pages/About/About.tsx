@@ -47,7 +47,10 @@ export default function AboutPage() {
             <Flex direction={"column"}>
                 <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "700px" }}>
                     <Title>About Startup Bauchi</Title>
-                    <Text lh={"30px"} fw={400} size="18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus odio a dolore porro similique, perspiciatis fugit praesentium sequi possimus aspernatur expedita voluptas minima rem voluptate unde esse fugiat id accusantium? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt facilis excepturi sapiente deserunt aliquam iure ab quae et placeat iusto voluptate beatae impedit, alias neque asperiores qui sunt dolores ex.</Text>
+                    <Text lh={"30px"} fw={400} size="18px">
+                        Startup Bauchi is a dynamic non-profit organization dedicated to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. Our mission is to transform innovative ideas into successful ventures by providing comprehensive support, resources, and guidance.
+                        Entrepreneurs in Bauchi often face significant challenges, including limited access to funding, a scarcity of experienced mentors, and a fragmented ecosystem. Startup Bauchi addresses these issues through a suite of tailored programs and services designed to bridge the gap between vision and success.
+                    </Text>
                 </Stack>
                 <Space h={80} />
                 <Stack>

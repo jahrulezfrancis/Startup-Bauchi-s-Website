@@ -1,5 +1,5 @@
 import { Box, Button, Modal, Card, Container, Flex, Grid, GridCol, Image, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
-import AboutImg from "../../../assets/Images/sb-2.jpeg"
+import AboutImg from "../../../assets/Images/profile.svg"
 import CarouselComponent from "./Carousel";
 import { Link } from "react-router-dom";
 import { GrGrow } from "react-icons/gr"
@@ -66,7 +66,7 @@ export default function Homepage() {
     return (
         <Box style={{ boxSizing: "border-box", overflow: "hidden" }} >
             <CarouselComponent />
-            <Grid align="center">
+            <Grid align="center" py={20}>
                 <GridCol p={20} span={{ base: 11, md: 11, lg: 6 }}>
                     <Image ml={"auto"} fit="cover" h={"400px"} w={"80%"} src={AboutImg} />
                 </GridCol>
@@ -159,13 +159,13 @@ export default function Homepage() {
             <Space h={100} />
 
             <Stack py={10} bg={" linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent)"} mx={20} style={{ borderRadius: 10, }} >
-                <Title py={10} ta={"center"}>Past and upcoming events higlight</Title>
+                <Title py={10} ta={"center"}>Past and upcoming event highlights</Title>
                 <TimelineComponent />
             </Stack>
 
             <Space h={100} />
             {/* Call to action section for community engagement */}
-            <Stack h={300} bg={"#eff2f4"}>
+            <Stack mih={300} bg={"#eff2f4"}>
                 <Container size="lg" style={{ textAlign: 'center', marginTop: '50px', marginBottom: '50px' }}>
                     <Title ta="center" size="xl" fw={700} style={{ marginBottom: '30px' }}>
                         Explore Our Communities

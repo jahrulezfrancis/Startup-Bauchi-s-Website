@@ -44,7 +44,7 @@ function Card({ image, title, description }: CardProps) {
                 <Title ta="center" order={3} className={classes.title}>
                     {title}
                 </Title>
-                <Text c={"white"} lh={1.2} size="md">
+                <Text ta={"center"} c={"white"} lh={1.2} size="md">
                     {description}
                 </Text>
                 <Button variant="white" color="dark">
@@ -68,11 +68,13 @@ export default function CarouselComponent() {
 
     return (
         <Carousel
+        
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}
             slideSize={{ base: '100%', sm: '100%' }}
             align="center"
+            loop
             slidesToScroll={1}
         >
             {slides}

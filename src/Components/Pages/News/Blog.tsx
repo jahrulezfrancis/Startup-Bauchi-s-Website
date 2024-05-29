@@ -1,11 +1,12 @@
 import { Box, Grid, Group, Title } from "@mantine/core";
 import BlogPostCard from "./BlogPostCard";
 import { postData } from "./PostData";
+import "../../AnimationContainers/animations.css"
 
 export default function BlogPage() {
     return (
         <Box>
-            <Grid>
+            <Grid style={{ animation: "bounceIn 1s ease 0s 1 normal forwards" }}>
                 <Grid.Col px={20} p={{ base: "10px", md: "0px", lg: "20px" }} span={{ base: 12, md: 6, lg: 8 }}>
                     <Title ta={{ base: "center", md: "center", lg: "start" }} mt={10}>Latest Post</Title>
                     <Group>

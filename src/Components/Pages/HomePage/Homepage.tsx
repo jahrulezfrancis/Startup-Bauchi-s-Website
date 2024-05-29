@@ -1,5 +1,4 @@
-import { Box, Button, Modal, Card, Container, Flex, Grid, GridCol, Image, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
-import AboutImg from "../../../assets/Images/profile.svg"
+import { Box, Button, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
 import CarouselComponent from "./Carousel";
 import { Link } from "react-router-dom";
 import { GrGrow } from "react-icons/gr"
@@ -66,52 +65,6 @@ export default function Homepage() {
     return (
         <Box style={{ boxSizing: "border-box", overflow: "hidden" }} >
             <CarouselComponent />
-            <Grid align="center" py={20}>
-                <GridCol p={20} span={{ base: 11, md: 11, lg: 6 }}>
-                    <Image ml={"auto"} fit="cover" h={"400px"} w={"80%"} src={AboutImg} />
-                </GridCol>
-                <GridCol span={{ base: 12, md: 12, lg: 6 }}>
-                    <Flex gap={10} direction={"column"} p={10} align={{ base: "center", md: "start", lg: "start" }} w={{ base: "100%", md: "100%", lg: "80%" }}>
-                        <Title>About us</Title>
-                        <Text ta={{ base: "center", md: "start", lg: "start" }}>Startup Bauchi is a dynamic organization committed to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. We provide a comprehensive suite of programs and services designed to bridge the gap between your vision and achieving remarkable success.</Text>
-                        <Link to={"/about"} >
-                            <Button>More about us</Button>
-                        </Link>
-                    </Flex>
-                </GridCol>
-            </Grid>
-            <Space h={100} />
-
-            {/* Mission and vision section  */}
-            <Stack>
-                <Container size="lg">
-                    <Grid gutter="lg">
-                        <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
-                            <Card h={200} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
-                                <Text ta="center" size="xl" fw={700} style={{ marginBottom: '20px' }}>
-                                    Our Mission
-                                </Text>
-                                <Text ta="center" size="lg" style={{ lineHeight: '1.6' }}>
-                                    Empowering individuals, startups, and organizations to thrive through entrepreneurship,
-                                    innovation, and collaboration.
-                                </Text>
-                            </Card>
-                        </Grid.Col>
-                        <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
-                            <Card h={200} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
-                                <Text ta="center" size="xl" fw={700} style={{ marginBottom: '20px' }}>
-                                    Our Vision
-                                </Text>
-                                <Text ta="center" size="lg" style={{ lineHeight: '1.6' }}>
-                                    Creating a vibrant and sustainable startup ecosystem in Bauchi State, where ideas
-                                    flourish, businesses thrive, and communities prosper.
-                                </Text>
-                            </Card>
-                        </Grid.Col>
-                    </Grid>
-                </Container>
-            </Stack>
-
             <Space h={100} />
 
             <Stack>
@@ -119,7 +72,7 @@ export default function Homepage() {
                 <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                 <Flex justify={"center"} gap={20} wrap={"wrap"}>
-                    <ProgramsCard icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
+                    <ProgramsCard index={2} icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
 
                     <ProgramsCard icon={<GrGrow fontSize={50} />} title="Incubation" description="Support for startups in their early stages, including workspace, mentorship, and access to funding opportunities." />
 
@@ -137,9 +90,8 @@ export default function Homepage() {
 
             <Flex justify="center" py={20} align="center" w={"100%"} mih={200} h={"auto"} bg={"#F5F7FA"}>
                 <Flex p={20} direction={{ base: "column" }} h={"auto"} justify="center" w={"100%"} >
-                    <Stack ta={{ base: "start", md: "start", lg:"center"}} lh={0} gap={0}>
+                    <Stack ta={{ base: "start", md: "start", lg: "center" }} lh={0} gap={0}>
                         <Title mb={20}>Empowering <span style={{ color: PrimaryGreen }}>Startups</span></Title> <br />
-                        {/* <Text>For a better and innovative ecosystem</Text> */}
                     </Stack>
                     <Space w={{ md: 0, lg: "50px" }} />
                     <Stack gap={0} align="center">
@@ -158,7 +110,7 @@ export default function Homepage() {
 
             <Space h={100} />
 
-            <Stack py={10} bg={" linear-gradient(to bottom, rgba(0, 0, 0, 0.03), transparent)"} mx={20} style={{ borderRadius: 10, }} >
+            <Stack py={10} bg={"#F5F7FA"} mx={20} style={{ borderRadius: 10, }} >
                 <Title py={10} ta={"center"}>Past and upcoming event highlights</Title>
                 <TimelineComponent />
             </Stack>

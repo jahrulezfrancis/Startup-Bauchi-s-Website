@@ -11,6 +11,8 @@ import { ashBg } from "../../Reuseables/Color";
 import { BsSendFill } from "react-icons/bs"
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import "../../AnimationContainers/animations.css"
+import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
 
 
 export default function AboutPage() {
@@ -44,10 +46,11 @@ export default function AboutPage() {
 
     return (
         <Box pt={20} style={{ overflowX: "hidden" }}>
+
             <Flex direction={"column"}>
-                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "700px" }}>
+                <Stack style={{ animation: "bounceIn 2s ease 0s 1 normal forwards", alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "700px" }}>
                     <Title>About Startup Bauchi</Title>
-                    <Text lh={"30px"} fw={400} size="18px">
+                    <Text px={20} lh={"30px"} fw={400} size="18px">
                         Startup Bauchi is a dynamic non-profit organization dedicated to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. Our mission is to transform innovative ideas into successful ventures by providing comprehensive support, resources, and guidance.
                         Entrepreneurs in Bauchi often face significant challenges, including limited access to funding, a scarcity of experienced mentors, and a fragmented ecosystem. Startup Bauchi addresses these issues through a suite of tailored programs and services designed to bridge the gap between vision and success.
                     </Text>
@@ -94,17 +97,17 @@ export default function AboutPage() {
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                     <Flex justify={"center"} gap={20} wrap={"wrap"}>
-                        <ProgramsCard icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
+                        <ProgramsCard index={2} icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
 
                         <ProgramsCard icon={<GrGrow fontSize={50} />} title="Incubation" description="Support for startups in their early stages, including workspace, mentorship, and access to funding opportunities." />
 
-                        <ProgramsCard icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
+                        <ProgramsCard index={4} icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
                     </Flex>
 
                     <Flex justify={"center"} gap={30} wrap={"wrap"}>
                         <ProgramsCard icon={<FaConnectdevelop fontSize={50} />} title="Networking Events" description="Regular meetups, pitch nights, and networking sessions to connect entrepreneurs, investors, and industry professionals." />
 
-                        <ProgramsCard icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
+                        <ProgramsCard index={4} icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
                     </Flex>
                 </Stack>
 
@@ -117,12 +120,14 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
+                    <FadeInOnScrollAnimationContainer children={
                 <Stack maw={"100vw"} align="center">
                     <Title ta={"center"}>Frequently asked questions</Title>
-                    <Accordion style={{ alignSelf: "center" }} w={"95%"} variant="separated" radius="lg">
-                        {items}
-                    </Accordion>
+                        <Accordion style={{ alignSelf: "center" }} w={"95%"} variant="separated" radius="lg">
+                            {items}
+                        </Accordion>
                 </Stack>
+                    } />
 
                 <Space h={100} />
 

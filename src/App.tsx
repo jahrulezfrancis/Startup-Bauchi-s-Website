@@ -45,10 +45,10 @@ export default function App() {
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group style={{ flex: 1 }} justify="space-between">
             <Link style={{ textDecoration: "none" }} to={"/"}>
-              <Title size={"md"}>Startup Bauchi</Title>
+              <Title ta={"start"} size={"md"}>Startup Bauchi</Title>
             </Link>
-            <Group ml="xl" gap={0} visibleFrom="sm">
-              <Flex style={{ gap: 15 }}>
+            <Group ml="xl" visibleFrom="sm">
+              <Flex gap={20}>
                 {navlinks.map((item) => {
                   return (
                     <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>

@@ -14,6 +14,7 @@ import { secondaryColor } from "../../Reuseables/Color";
 import CustomSolidButton from "../../Reuseables/SolidButton";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
+import ContinousSlider from "../../AnimationContainers/ContinousSlide";
 
 
 
@@ -71,6 +72,7 @@ export default function Homepage() {
                 <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                 <ProgramsRenderer showAll={false} />
+                {/* //replace first item with bootcap */}
 
                 <Flex justify={"center"}>
                     <Link to={"/programs"}>
@@ -107,13 +109,22 @@ export default function Homepage() {
                 </Flex>
             </Flex>
 
-
             <Space h={100} />
 
             <Stack py={10} bg={""} mx={20} style={{ borderRadius: 10, }} >
                 <Title py={10} ta={"center"}>Past and upcoming event highlights</Title>
                 <TimelineComponent />
             </Stack>
+
+            <Space h={20} />
+
+
+            <Flex direction={"column"} w={"100%"} align={"center"} justify={"center"}>
+                <Title mb={50}>Our partners</Title>
+                <Stack w={{ base: "100%", md: "100%", lg: "100%" }}>
+                    <ContinousSlider />
+                </Stack>
+            </Flex>
 
             <Space h={100} />
             {/* Call to action section for community engagement */}

@@ -9,7 +9,7 @@ export default function TestimonialsPage() {
                 <Text mb={50} ta="center" w={{ base: "80%", md: "70%", lg: "60%" }}>
                     Hear from our satisfied clients and partners who have experienced our programs and services.
                 </Text>
-                <Flex justify="center" gap={20} wrap="wrap">
+                <Flex maw={"90vw"}justify="center" gap={20} wrap="wrap">
                     <TestimonialsRenderer />
                 </Flex>
             </Stack>

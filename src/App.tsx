@@ -1,4 +1,4 @@
-import { AppShell, Burger, Flex, Group, Stack, Text, Title, Tooltip } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Image, Stack, Text, Title, Tooltip } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom"
 import { Route, Routes } from "react-router-dom";
@@ -13,7 +13,8 @@ import BlogPage from './Components/Pages/News/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
-import { ashBg } from './Components/Reuseables/Color';
+import { secondaryColor } from './Components/Reuseables/Color';
+import logo from "./assets/logo.jpg"
 
 
 export default function App() {
@@ -40,19 +41,20 @@ export default function App() {
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header bg={ashBg}>
+      <AppShell.Header>
         <Group h="100%" px="md">
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          <Burger right={20} pos={'absolute'} opened={opened} onClick={toggle} hiddenFrom="sm" size="md" />
           <Group style={{ flex: 1 }} justify="space-between">
-            <Link style={{ textDecoration: "none" }} to={"/"}>
-              <Title size={"md"}>Startup Bauchi</Title>
-            </Link>
-            <Group ml="xl" gap={0} visibleFrom="sm">
-              <Flex style={{ gap: 15 }}>
+            <Flex td={"none"} to={"/"} component={Link} gap={5} align={"center"}>
+              <Image radius={50} w={50} src={logo} />
+              <Title c={secondaryColor} ta={"start"} size={"md"}>Startup Bauchi</Title>
+            </Flex>
+            <Group ml="xl" visibleFrom="sm">
+              <Flex gap={20}>
                 {navlinks.map((item) => {
                   return (
                     <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                      <Text style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
+                      <Text fw={700} c={secondaryColor} style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )
                 })}
@@ -87,24 +89,24 @@ export default function App() {
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer h={"auto"} mih={100} pos={"relative"}>
+      <AppShell.Footer withBorder={false} bg={"#f9fafc"} h={"auto"} mih={100} pos={"relative"}>
         <Stack py={"10px"} h={"100%"} align='center' justify="center" >
           <Title mt={20} size={"md"} c={"black"} ta={"center"}>Connect with us on social media</Title>
           <Group gap={25} justify="center">
             <Tooltip position="bottom" label="Join Telegram commnity">
               <Link to={""}>
-                <FaTelegram color="#1C7ED6" fontSize={25} />
+                <FaTelegram color={secondaryColor} fontSize={25} />
               </Link>
             </Tooltip>
 
             <Tooltip position="bottom" label="Join Whatsapp community">
               <Link to={""}>
-                <FaWhatsapp color="#1C7ED6" fontSize={25} />
+                <FaWhatsapp color={secondaryColor} fontSize={25} />
               </Link>
             </Tooltip>
             <Tooltip position="bottom" label="Join Twitter community">
               <Link to={""}>
-                <FaTwitter color="#1C7ED6" fontSize={25} />
+                <FaTwitter color={secondaryColor} fontSize={25} />
               </Link>
             </Tooltip>
           </Group>

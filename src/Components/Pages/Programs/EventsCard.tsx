@@ -1,5 +1,7 @@
-import { Stack, Image, Text, Card, Badge, Button, Group } from "@mantine/core"
+import { Stack, Image, Text, Card, Badge, Group } from "@mantine/core"
 import { Link } from "react-router-dom";
+import CustomSolidButton from "../../Reuseables/SolidButton";
+import { secondaryColor } from "../../Reuseables/Color";
 
 interface CardProps {
     eventTitle: string;
@@ -25,12 +27,11 @@ export default function EventCard(props: CardProps) {
                 </Card.Section>
 
                 <Group gap={9} justify="start" mt="md" mb="xs">
-                    <Text fw={500}>{props.eventTitle}</Text>
-                    {/* <Badge color={props.eventDone ? "red": "green"}>{props.eventDone ? "done" : "new"}</Badge> */}
+                    <Text td={props.eventDone ? "line-through" : "none"} fw={500}>{props.eventTitle}</Text>
                 </Group>
 
                 <Text size="sm" c="dimmed">
-                  {props.eventDescription}
+                    {props.eventDescription}
                 </Text>
 
                 <Group gap={9} justify="start" mt="md" mb="xs">
@@ -40,15 +41,11 @@ export default function EventCard(props: CardProps) {
 
                 {props.eventDone ?
                     <Link style={{ textDecoration: "none" }} to={"#"}>
-                        <Button color="blue" fullWidth mt="md" radius="md">
-                            Explore highlights from event
-                        </Button>
+                        <CustomSolidButton buttonText="Explore highlights from event" fullWidth color="green" bg={secondaryColor} radius={"md"} />
                     </Link>
                     :
-                    <Link style={{ textDecoration: "none" }} to={"#"}>
-                        <Button color="blue" fullWidth mt="md" radius="md">
-                            Sign up for event
-                        </Button>
+                    <Link onClick={() => localStorage.setItem("selectedEvent", props.eventTitle)} style={{ textDecoration: "none" }} to={"#"}>
+                        <CustomSolidButton buttonText="Sign up for event" fullWidth color="green" bg={secondaryColor} radius={"md"} />
                     </Link>
                 }
             </Card>

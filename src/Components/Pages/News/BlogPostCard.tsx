@@ -1,6 +1,8 @@
-import { Group, Card, Button, Image, Text } from "@mantine/core"
+import { Group, Card, Image, Text } from "@mantine/core"
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { secondaryColor } from "../../Reuseables/Color";
+import CustomSolidButton from "../../Reuseables/SolidButton";
 
 
 interface cardProps {
@@ -31,9 +33,7 @@ export default function BlogPostCard(props: cardProps) {
             </Text>
 
             <Link to={props.postLink}>
-                <Button color="blue" fullWidth mt="md" radius="md">
-                    Learn More
-                </Button>
+                <CustomSolidButton bg={secondaryColor} color="blue" fullWidth mt="md" radius="md" buttonText="Learn More" />
             </Link>
         </Card>
     )

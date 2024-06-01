@@ -1,16 +1,20 @@
-import { Box, Stack, Title, Group, Grid, Card, Text, Flex, Space, Button, Accordion, TextInput } from "@mantine/core";
+import { Box, Stack, Title, Group, Grid, Text, Flex, Space, Accordion, TextInput } from "@mantine/core";
 import "../../../index.css"
-import { GiBullseye, GiTeacher, } from "react-icons/gi";
-import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
+import { GiTeacher, } from "react-icons/gi";
+import { FaConnectdevelop } from "react-icons/fa";
 import { LiaRocketSolid } from "react-icons/lia";
 import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
-import { ashBg } from "../../Reuseables/Color";
+import { ashBg, secondaryColor } from "../../Reuseables/Color";
 import { BsSendFill } from "react-icons/bs"
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import "../../AnimationContainers/animations.css"
+import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
+import CustomSolidButton from "../../Reuseables/SolidButton";
+import MissionAndVissionCard from "../../Reuseables/Cards/MissionAndVission";
 
 
 export default function AboutPage() {
@@ -44,10 +48,11 @@ export default function AboutPage() {
 
     return (
         <Box pt={20} style={{ overflowX: "hidden" }}>
+
             <Flex direction={"column"}>
-                <Stack style={{ alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "700px" }}>
+                <Stack style={{ animation: "bounceIn 2s ease 0s 1 normal forwards", alignSelf: "center" }} ta={"center"} align="center" w={{ base: "100vw", md: "500px", lg: "900px" }}>
                     <Title>About Startup Bauchi</Title>
-                    <Text lh={"30px"} fw={400} size="18px">
+                    <Text px={20}  >
                         Startup Bauchi is a dynamic non-profit organization dedicated to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. Our mission is to transform innovative ideas into successful ventures by providing comprehensive support, resources, and guidance.
                         Entrepreneurs in Bauchi often face significant challenges, including limited access to funding, a scarcity of experienced mentors, and a fragmented ecosystem. Startup Bauchi addresses these issues through a suite of tailored programs and services designed to bridge the gap between vision and success.
                     </Text>
@@ -55,34 +60,13 @@ export default function AboutPage() {
                 <Space h={80} />
                 <Stack>
                     <Grid p={20} gutter="35px">
-                        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
-                            <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
-                                <Flex gap={5} direction={"column"} align={"center"}>
-                                    <GiBullseye style={{ alignSelf: "center" }} fontSize={50} />
-                                    <Text ta="center" size="xl" fw={700}>
-                                        Our Mission
-                                    </Text>
-                                    <Text ta="center" size="lg" style={{ lineHeight: '1.6' }}>
-                                        To empower individuals, startups, and organizations to thrive through entrepreneurship,
-                                        innovation, and collaboration.
-                                    </Text>
-                                </Flex>
-                            </Card>
+                        
+                        <Grid.Col mx={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
+                            <MissionAndVissionCard title="Mission" description=" To empower individuals, startups, and organizations to thrive through entrepreneurship, innovation, and collaboration." />
                         </Grid.Col>
-                        {/* <Space h={100} hiddenFrom="lg" /> */}
-                        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
-                            <Card mih={230} shadow="xl" padding="lg" radius="lg" style={{ background: '#F9FAFB' }}>
-                                <Flex gap={5} direction={"column"} align={"center"}>
-                                    <FaRegEye style={{ alignSelf: "center" }} fontSize={50} />
-                                    <Text ta="center" size="xl" fw={700}>
-                                        Our Mission
-                                    </Text>
-                                    <Text ta="center" size="lg" style={{ lineHeight: '1.6' }}>
-                                        To create a vibrant and sustainable startup ecosystem in Bauchi State, where ideas
-                                        flourish, businesses thrive, and communities prosper.
-                                    </Text>
-                                </Flex>
-                            </Card>
+                        
+                        <Grid.Col mx={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
+                            <MissionAndVissionCard title="Vision" description="To create a vibrant and sustainable startup ecosystem in Bauchi State, where ideas flourish, businesses thrive, and communities prosper." />
                         </Grid.Col>
                     </Grid>
                 </Stack>
@@ -94,17 +78,17 @@ export default function AboutPage() {
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                     <Flex justify={"center"} gap={20} wrap={"wrap"}>
-                        <ProgramsCard icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
+                        <ProgramsCard index={2} icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
 
                         <ProgramsCard icon={<GrGrow fontSize={50} />} title="Incubation" description="Support for startups in their early stages, including workspace, mentorship, and access to funding opportunities." />
 
-                        <ProgramsCard icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
+                        <ProgramsCard index={4} icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
                     </Flex>
 
                     <Flex justify={"center"} gap={30} wrap={"wrap"}>
                         <ProgramsCard icon={<FaConnectdevelop fontSize={50} />} title="Networking Events" description="Regular meetups, pitch nights, and networking sessions to connect entrepreneurs, investors, and industry professionals." />
 
-                        <ProgramsCard icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
+                        <ProgramsCard index={4} icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
                     </Flex>
                 </Stack>
 
@@ -117,12 +101,14 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack maw={"100vw"} align="center">
-                    <Title ta={"center"}>Frequently asked questions</Title>
-                    <Accordion style={{ alignSelf: "center" }} w={"95%"} variant="separated" radius="lg">
-                        {items}
-                    </Accordion>
-                </Stack>
+                <FadeInOnScrollAnimationContainer children={
+                    <Stack maw={"100vw"} align="center">
+                        <Title ta={"center"}>Frequently asked questions</Title>
+                        <Accordion style={{ alignSelf: "center" }} w={"95%"} variant="separated" radius="lg">
+                            {items}
+                        </Accordion>
+                    </Stack>
+                } />
 
                 <Space h={100} />
 
@@ -134,7 +120,7 @@ export default function AboutPage() {
                             <Group gap={10}>
                                 <Group align="flex-end">
                                     <TextInput radius={10} size="lg" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@startupbauchi.com" style={{ flex: 1 }} />
-                                    <Button radius={10} size="lg" type="submit" leftSection={<BsSendFill />}>Subscribe</Button>
+                                    <CustomSolidButton size="lg" leftSection={<BsSendFill />} buttonText="Subscribe" type="submit" bg={secondaryColor} radius={10} />
                                 </Group>
                             </Group>
                         </Stack>

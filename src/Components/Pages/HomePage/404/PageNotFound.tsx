@@ -1,7 +1,9 @@
-import { Button, Title, Container, Text, Group, Stack } from "@mantine/core";
+import { Title, Container, Text, Group, Stack } from "@mantine/core";
 import { Link } from "react-router-dom";
 import { Illustration } from "./Illustration";
 import classes from './NotFoundTitle.module.css';
+import { secondaryColor } from "../../../Reuseables/Color";
+import CustomSolidButton from "../../../Reuseables/SolidButton";
 
 export default function PageNotFound() {
     return (
@@ -17,7 +19,7 @@ export default function PageNotFound() {
 
                     <Group justify="center">
                         <Link to={"/"}>
-                            <Button size="md">Go back to home page</Button>
+                            <CustomSolidButton bg={secondaryColor} size="md" buttonText="Go back to home page" />
                         </Link>
                     </Group>
                 </Stack>

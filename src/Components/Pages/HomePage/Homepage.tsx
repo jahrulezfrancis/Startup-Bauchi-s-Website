@@ -1,4 +1,4 @@
-import { Box, Button, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
+import { Box, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
 import CarouselComponent from "./Carousel";
 import { Link } from "react-router-dom";
 import { GrGrow } from "react-icons/gr"
@@ -14,7 +14,8 @@ import ProgramsCard from "./ProgramsCard";
 import { useDisclosure } from '@mantine/hooks';
 import TimelineComponent from "../../Reuseables/TimelineComponent";
 import StatisticsCard from "./StatsCard";
-import { PrimaryGreen } from "../../Reuseables/Color";
+import { primaryColor, secondaryColor } from "../../Reuseables/Color";
+import CustomSolidButton from "../../Reuseables/SolidButton";
 
 
 
@@ -57,7 +58,7 @@ export default function Homepage() {
                     </ModalBody>
 
                 </Modal>
-                <Button onClick={open} radius={10} size="lg" style={{ marginTop: '50px' }}>Explore All Communities</Button>
+                <CustomSolidButton bg={secondaryColor} onClick={open} radius={10} size="lg" buttonText="Explore All Communities" style={{ marginTop: '50px' }} />
             </>
         );
     }
@@ -91,17 +92,17 @@ export default function Homepage() {
             <Flex justify="center" py={20} align="center" w={"100%"} mih={200} h={"auto"} bg={"#F5F7FA"}>
                 <Flex p={20} direction={{ base: "column" }} h={"auto"} justify="center" w={"100%"} >
                     <Stack ta={{ base: "start", md: "start", lg: "center" }} lh={0} gap={0}>
-                        <Title mb={20}>Empowering <span style={{ color: PrimaryGreen }}>Startups</span></Title> <br />
+                        <Title mb={20}>Empowering <span style={{ color: primaryColor }}>Startups</span></Title> <br />
                     </Stack>
                     <Space w={{ md: 0, lg: "50px" }} />
                     <Stack gap={0} align="center">
                         <Flex wrap={"wrap"} gap={0}>
-                            <StatisticsCard Icon={<IoPeople color={PrimaryGreen} />} beneficiaries="Members" statsNumber={1000} />
-                            <StatisticsCard Icon={<CgCommunity color={PrimaryGreen} />} beneficiaries="Startups Supporting" statsNumber={100} />
+                            <StatisticsCard Icon={<IoPeople color={primaryColor} />} beneficiaries="Members" statsNumber={1000} />
+                            <StatisticsCard Icon={<CgCommunity color={primaryColor} />} beneficiaries="Startups Supporting" statsNumber={100} />
                         </Flex>
                         <Flex wrap={"wrap"} gap={0}>
-                            <StatisticsCard Icon={<MdEventAvailable color={PrimaryGreen} />} beneficiaries="Event" statsNumber={10} />
-                            <StatisticsCard Icon={< FaArrowsDownToPeople color={PrimaryGreen} />} beneficiaries="Volunteers" statsNumber={20} />
+                            <StatisticsCard Icon={<MdEventAvailable color={primaryColor} />} beneficiaries="Event" statsNumber={10} />
+                            <StatisticsCard Icon={< FaArrowsDownToPeople color={primaryColor} />} beneficiaries="Volunteers" statsNumber={20} />
                         </Flex>
                     </Stack>
                 </Flex>

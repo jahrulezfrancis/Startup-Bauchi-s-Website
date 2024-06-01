@@ -1,8 +1,10 @@
-import { Box, Stack, Flex, Button, Space, TextInput, Select } from "@mantine/core";
+import { Box, Stack, Flex, Space, TextInput, Select } from "@mantine/core";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { FaHandsHelping } from "react-icons/fa";
 import emailjs from "@emailjs/browser"
 import { notifications } from "@mantine/notifications";
+import { secondaryColor } from "../../../Reuseables/Color";
+import CustomSolidButton from "../../../Reuseables/SolidButton";
 
 export default function VolunteerSignUpForm() {
 
@@ -93,11 +95,11 @@ export default function VolunteerSignUpForm() {
                             onChange={(_value, option) => setFormData({ ...formData, role: option.value })}
                             required
                         />
-                        <Button loading={loading} w={"100%"} radius={10} mt={30} size="md" type="submit">Submit Application</Button>
+                        <CustomSolidButton fullWidth bg={secondaryColor} loading={loading} w={"100%"} radius={10} mt={30} size="md" type="submit" buttonText="Submit Application" />
                     </Stack>
                 </form>
             </Flex>
             <Space h={100} />
-        </Box>
+        </Box >
     )
 } 

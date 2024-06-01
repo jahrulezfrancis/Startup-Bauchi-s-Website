@@ -1,11 +1,13 @@
 import { Carousel } from '@mantine/carousel';
-import { Button, Paper, Title, Text, Stack } from '@mantine/core';
+import { Paper, Title, Text, Stack } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
 import Image1 from "../../../assets/Images/sb-1.jpeg";
 import Image2 from "../../../assets/Images/sb-2.jpeg";
 import Image3 from "../../../assets/Images/sb-3.jpeg";
 import classes from './Carousel.module.css';
 import { useRef } from 'react';
+import { secondaryColor } from '../../Reuseables/Color';
+import CustomSolidButton from '../../Reuseables/SolidButton';
 
 const data = [
     {
@@ -47,9 +49,7 @@ function Card({ image, title, description }: CardProps) {
                 <Text ta={"center"} c={"white"} lh={1.2} size="md">
                     {description}
                 </Text>
-                <Button variant="white" color="dark">
-                    Read more
-                </Button>
+                <CustomSolidButton bg={secondaryColor} w={"200px"} variant="white" color="dark" buttonText='Read more' />
             </Stack>
         </Paper>
     );
@@ -68,7 +68,7 @@ export default function CarouselComponent() {
 
     return (
         <Carousel
-        
+
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}

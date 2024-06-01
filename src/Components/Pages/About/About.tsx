@@ -1,4 +1,4 @@
-import { Box, Stack, Title, Group, Grid, Card, Text, Flex, Space, Button, Accordion, TextInput } from "@mantine/core";
+import { Box, Stack, Title, Group, Grid, Card, Text, Flex, Space, Accordion, TextInput } from "@mantine/core";
 import "../../../index.css"
 import { GiBullseye, GiTeacher, } from "react-icons/gi";
 import { FaConnectdevelop, FaRegEye } from "react-icons/fa";
@@ -7,12 +7,13 @@ import { GrGrow } from "react-icons/gr";
 import { PiPresentationLight } from "react-icons/pi";
 import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
-import { ashBg } from "../../Reuseables/Color";
+import { ashBg, secondaryColor } from "../../Reuseables/Color";
 import { BsSendFill } from "react-icons/bs"
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import "../../AnimationContainers/animations.css"
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
+import CustomSolidButton from "../../Reuseables/SolidButton";
 
 
 export default function AboutPage() {
@@ -139,7 +140,7 @@ export default function AboutPage() {
                             <Group gap={10}>
                                 <Group align="flex-end">
                                     <TextInput radius={10} size="lg" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@startupbauchi.com" style={{ flex: 1 }} />
-                                    <Button radius={10} size="lg" type="submit" leftSection={<BsSendFill />}>Subscribe</Button>
+                                    <CustomSolidButton size="lg" leftSection={<BsSendFill />} buttonText="Subscribe" type="submit" bg={secondaryColor} radius={10}  />
                                 </Group>
                             </Group>
                         </Stack>

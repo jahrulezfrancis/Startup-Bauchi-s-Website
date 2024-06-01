@@ -1,8 +1,10 @@
-import { Box, Stack, Flex, Button, Space, TextInput, Textarea } from "@mantine/core";
+import { Box, Stack, Flex, Space, TextInput, Textarea } from "@mantine/core";
 import { ChangeEvent, FormEvent, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { GoOrganization } from "react-icons/go";
 import { notifications } from "@mantine/notifications";
+import { secondaryColor } from "../../../Reuseables/Color";
+import CustomSolidButton from "../../../Reuseables/SolidButton";
 
 export default function StartupSignUpForm() {
     const [loading, setLoading] = useState(false)
@@ -73,8 +75,7 @@ export default function StartupSignUpForm() {
                         <TextInput w={"100%"} label="Company email address" radius={8} size="md" name="companyEmail" value={formData.companyEmail} onChange={handleChange} type="email" placeholder="Your Email" required />
 
                         <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
-
-                        <Button loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit">Submit Application</Button>
+                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit" buttonText="Submit Application" />
                     </Stack>
                 </form>
             </Flex>

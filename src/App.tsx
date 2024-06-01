@@ -13,7 +13,7 @@ import BlogPage from './Components/Pages/News/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
-import { ashBg } from './Components/Reuseables/Color';
+import { secondaryColor } from './Components/Reuseables/Color';
 
 
 export default function App() {
@@ -40,7 +40,7 @@ export default function App() {
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header bg={ashBg}>
+      <AppShell.Header bg={secondaryColor}>
         <Group h="100%" px="md">
           <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
           <Group style={{ flex: 1 }} justify="space-between">
@@ -52,7 +52,7 @@ export default function App() {
                 {navlinks.map((item) => {
                   return (
                     <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                      <Text style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
+                      <Text fw={800} c={"white"} style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )
                 })}

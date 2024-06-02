@@ -6,7 +6,12 @@ import { notifications } from "@mantine/notifications";
 import { secondaryColor } from "../../../Reuseables/Color";
 import CustomSolidButton from "../../../Reuseables/SolidButton";
 
-export default function StartupSignUpForm() {
+
+interface formProps {
+    showIcon: boolean;
+}
+
+export default function StartupSignUpForm(props: formProps) {
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         companyName: "",
@@ -64,9 +69,11 @@ export default function StartupSignUpForm() {
     return (
         <Box px={10} pt={20}>
             <Flex maw={"100vw"} direction={"column"} justify="center" align={{ base: "center", md: "center" }}>
-                <Flex justify="center" gap={20} wrap="wrap">
-                    <GoOrganization fontSize={80} />
-                </Flex>
+                {props.showIcon &&
+                    <Flex justify="center" gap={20} wrap="wrap">
+                        <GoOrganization fontSize={80} />
+                    </Flex>
+                }
                 <form onSubmit={handleFormSubmit}>
                     <Stack align="center" w={{ base: "90vw", md: "80vw", lg: "500px" }}>
 
@@ -80,6 +87,6 @@ export default function StartupSignUpForm() {
                 </form>
             </Flex>
             <Space h={100} />
-        </Box>
+        </Box >
     )
 }

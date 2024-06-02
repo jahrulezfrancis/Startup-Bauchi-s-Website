@@ -31,7 +31,7 @@ export default function GetInvolvedPage() {
                 </Tabs.List>
 
                 <Tabs.Panel value="first">
-                    <StartupSignUpForm />
+                    <StartupSignUpForm showIcon={true} />
                 </Tabs.Panel>
 
                 <Tabs.Panel value="second">

@@ -1,4 +1,4 @@
-import { Box, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
+import { Box, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip, Grid } from "@mantine/core";
 import CarouselComponent from "./Carousel";
 import { Link } from "react-router-dom";
 import { CgCommunity } from "react-icons/cg";
@@ -15,6 +15,7 @@ import CustomSolidButton from "../../Reuseables/SolidButton";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
 import ContinousSlider from "../../AnimationContainers/ContinousSlide";
+import StartupSignUpForm from "../GetInvolved/Forms/Startup.form";
 
 
 
@@ -115,6 +116,18 @@ export default function Homepage() {
                 <Title py={10} ta={"center"}>Past and upcoming event highlights</Title>
                 <TimelineComponent />
             </Stack>
+
+            <Space h={20} />
+
+            <Grid mx={"auto"}>
+                <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
+                    <Title>Left Section</Title>
+                </Grid.Col>
+
+                <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
+                    <StartupSignUpForm showIcon={false} />
+                </Grid.Col>
+            </Grid>
 
             <Space h={20} />
 

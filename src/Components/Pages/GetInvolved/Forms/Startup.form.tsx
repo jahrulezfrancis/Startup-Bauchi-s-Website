@@ -9,6 +9,7 @@ import CustomSolidButton from "../../../Reuseables/SolidButton";
 
 interface formProps {
     showIcon: boolean;
+    formPosition: "start" | "end" | "center";
 }
 
 export default function StartupSignUpForm(props: formProps) {
@@ -68,7 +69,7 @@ export default function StartupSignUpForm(props: formProps) {
 
     return (
         <Box px={10} pt={20}>
-            <Flex maw={"100vw"} direction={"column"} justify="center" align={{ base: "center", md: "center" }}>
+            <Flex maw={"100vw"} direction={"column"} justify="center" align={{ base: "center", md: "center", lg: props.formPosition }}>
                 {props.showIcon &&
                     <Flex justify="center" gap={20} wrap="wrap">
                         <GoOrganization fontSize={80} />

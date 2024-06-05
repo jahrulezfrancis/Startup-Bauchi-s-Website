@@ -76,9 +76,6 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack maw={"100vw"} align="center" justify="center" px={20} mih={400} h={"auto"} bg={ashBg}>
-                   
-                </Stack>
             </Flex>
         </Box>
     )

@@ -24,7 +24,7 @@ export default function NewsLetterSection(){
     return(
         <form onSubmit={handleEmailSub}>
         <Stack align="start">
-            <Title c={"black"}>Sign up for news letters</Title>
+            <Title fw={500} c={"black"}>Sign up for news letters</Title>
             <Text c="black">Sign up  for Startup Bauchi's news letter and be among the first people to know about upcoming events</Text>
             <Group gap={10}>
                 <Group align="flex-end">

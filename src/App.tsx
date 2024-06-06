@@ -78,7 +78,7 @@ export default function App() {
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer mt={20} withBorder={false} bg={ashBg} h={"auto"} mih={100} pos={"relative"}>
+      <AppShell.Footer mt={100} withBorder={false} bg={ashBg} h={"auto"} mih={100} pos={"relative"}>
         <FooterSection />
       </AppShell.Footer>
     </AppShell >

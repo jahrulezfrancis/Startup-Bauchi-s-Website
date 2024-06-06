@@ -5,15 +5,15 @@ import { CgCommunity } from "react-icons/cg";
 import { MdEventAvailable } from "react-icons/md";
 import { FaArrowsDownToPeople } from "react-icons/fa6"
 import { IoPeople } from "react-icons/io5"
-import AboutImage from "../../../assets/Images/workspace.jpg";
+import AboutImage from "../../../assets/Images/sign-up.jpg";
 import TimelineComponent from "../../Reuseables/TimelineComponent";
 import StatisticsCard from "./StatsCard";
 import { ashBg, secondaryColor } from "../../Reuseables/Color";
 import CustomSolidButton from "../../Reuseables/SolidButton";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
-import ContinousSlider from "../../AnimationContainers/ContinousSlide";
 import StartupSignUpForm from "../GetInvolved/Forms/Startup.form";
+import ContinousSlider from "../../AnimationContainers/ContinousSlide";
 
 
 
@@ -95,6 +95,8 @@ export default function Homepage() {
                 <Stack w={{ base: "100%", md: "100%", lg: "100%" }}>
                     <ContinousSlider />
                 </Stack>
+
+                {/* <PartnersSlider /> */}
             </Flex>
             <Space h={100} />
         </Box>

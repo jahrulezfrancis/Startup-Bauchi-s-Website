@@ -24,6 +24,7 @@ export default function StartupPage() {
     return (
         <Box pt={20}>
             <Stack>
+                {/* create a form for startup enrollment */}
                 <Stack p={10}>
                     <Title ta="center">Startups Powered by Us</Title>
                     <Text ta="center">

@@ -1,66 +1,23 @@
-import { Box, Modal, Container, Flex, Space, Stack, Text, Title, ModalBody, Group, Tooltip } from "@mantine/core";
+import { Box, Flex, Space, Stack, Text, Title, Grid, Image } from "@mantine/core";
 import CarouselComponent from "./Carousel";
 import { Link } from "react-router-dom";
 import { CgCommunity } from "react-icons/cg";
 import { MdEventAvailable } from "react-icons/md";
-import { FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa"
 import { FaArrowsDownToPeople } from "react-icons/fa6"
 import { IoPeople } from "react-icons/io5"
-
-import { useDisclosure } from '@mantine/hooks';
+import AboutImage from "../../../assets/Images/sign-up.jpg";
 import TimelineComponent from "../../Reuseables/TimelineComponent";
 import StatisticsCard from "./StatsCard";
-import { secondaryColor } from "../../Reuseables/Color";
+import { ashBg, secondaryColor } from "../../Reuseables/Color";
 import CustomSolidButton from "../../Reuseables/SolidButton";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
+import StartupSignUpForm from "../GetInvolved/Forms/Startup.form";
+import ContinousSlider from "../../AnimationContainers/ContinousSlide";
 
 
 
 export default function Homepage() {
-    const [opened, { open, close }] = useDisclosure(false);
-
-    function ModalComponent() {
-        return (
-            <>
-                <Modal
-                    opened={opened}
-                    onClose={close}
-                    title="Startup Bauchi Communities"
-                    centered
-                    overlayProps={{
-                        backgroundOpacity: 0.55,
-                        blur: 3,
-                    }}
-                >
-                    <ModalBody color="blue">
-                        <Group gap={25} justify="center">
-                            <Tooltip position="bottom" label="Join Telegram commnity">
-                                <Link to={""}>
-                                    <FaTelegram color={secondaryColor} fontSize={50} />
-                                </Link>
-                            </Tooltip>
-
-                            <Tooltip position="bottom" label="Join Whatsapp community">
-                                <Link to={""}>
-                                    <FaWhatsapp color={secondaryColor} fontSize={50} />
-                                </Link>
-                            </Tooltip>
-
-                            <Tooltip position="bottom" label="Join Twitter community">
-                                <Link to={""}>
-                                    <FaTwitter color={secondaryColor} fontSize={50} />
-                                </Link>
-                            </Tooltip>
-                        </Group>
-                    </ModalBody>
-
-                </Modal>
-                <CustomSolidButton bg={secondaryColor} onClick={open} radius={10} size="lg" buttonText="Explore All Communities" style={{ marginTop: '50px' }} />
-            </>
-        );
-    }
-
     return (
         <Box style={{ boxSizing: "border-box", overflow: "hidden" }} >
             <CarouselComponent />
@@ -71,6 +28,7 @@ export default function Homepage() {
                 <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                 <ProgramsRenderer showAll={false} />
+                {/* //replace first item with bootcap */}
 
                 <Flex justify={"center"}>
                     <Link to={"/programs"}>
@@ -107,7 +65,6 @@ export default function Homepage() {
                 </Flex>
             </Flex>
 
-
             <Space h={100} />
 
             <Stack py={10} bg={""} mx={20} style={{ borderRadius: 10, }} >
@@ -115,21 +72,33 @@ export default function Homepage() {
                 <TimelineComponent />
             </Stack>
 
+            <Space h={20} />
+
+            <Flex direction={"column"} py={20} bg={ashBg} mx={"auto"}>
+                <Title my={20} ta={"center"}>Join Startups</Title>
+                <Grid >
+                    <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
+                        <Image w={"80%"} ml={"auto"} src={AboutImage} />
+                    </Grid.Col>
+
+                    <Grid.Col mr={"auto"} span={{ base: 12, md: 12, lg: 6 }}>
+                        <StartupSignUpForm formPosition="start" showIcon={false} />
+                    </Grid.Col>
+                </Grid>
+            </Flex>
+
             <Space h={100} />
-            {/* Call to action section for community engagement */}
-            <Stack mih={300} bg={"#f9fafc"}>
-                <Container size="lg" style={{ textAlign: 'center', marginTop: '50px', marginBottom: '50px' }}>
-                    <Title ta="center" size="xl" fw={700} style={{ marginBottom: '30px' }}>
-                        Explore Our Communities
-                    </Title>
-                    <Text>Explore diverse communities supporting entrepreneurship, innovation, and technology. Whether you're an aspiring entrepreneur, seasoned innovator, or simply curious, there's a community for you.</Text>
 
-                    <Text>Join us to turn ideas into action, forge meaningful connections, and shape a brighter future together.</Text>
-                    <ModalComponent />
-                </Container>
-            </Stack>
 
-            {/* <Space h={100} /> */}
+            <Flex direction={"column"} w={"100%"} align={"center"} justify={"center"}>
+                <Title mb={50}>Our partners</Title>
+                <Stack w={{ base: "100%", md: "100%", lg: "100%" }}>
+                    <ContinousSlider />
+                </Stack>
+
+                {/* <PartnersSlider /> */}
+            </Flex>
+            <Space h={100} />
         </Box>
     )
 }

@@ -1,38 +1,14 @@
-import { Box, Stack, Title, Group, Grid, Text, Flex, Space, Accordion, TextInput } from "@mantine/core";
+import { Box, Stack, Title, Grid, Text, Flex, Space, Accordion } from "@mantine/core";
 import "../../../index.css"
-import { GiTeacher, } from "react-icons/gi";
-import { FaConnectdevelop } from "react-icons/fa";
-import { LiaRocketSolid } from "react-icons/lia";
-import { GrGrow } from "react-icons/gr";
-import { PiPresentationLight } from "react-icons/pi";
-import ProgramsCard from "../HomePage/ProgramsCard";
 import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
-import { ashBg, secondaryColor } from "../../Reuseables/Color";
-import { BsSendFill } from "react-icons/bs"
-import { FormEvent, useState } from "react";
-import toast from "react-hot-toast";
+import { ashBg } from "../../Reuseables/Color";
 import "../../AnimationContainers/animations.css"
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
-import CustomSolidButton from "../../Reuseables/SolidButton";
 import MissionAndVissionCard from "../../Reuseables/Cards/MissionAndVission";
+import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 
 
 export default function AboutPage() {
-
-
-    const [email, setEmail] = useState<string>("")
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    function handleEmailSub(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-        if (emailRegex.test(email)) {
-            toast.error("The email you provided is not valid")
-        } else if (email.length === 0) {
-            toast.error("The email you provided is not valid")
-        }
-    }
-
     const faqList = [
         { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
         { id: "q2", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
@@ -60,12 +36,12 @@ export default function AboutPage() {
                 <Space h={80} />
                 <Stack>
                     <Grid p={20} gutter="35px">
-                        
-                        <Grid.Col mx={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
+
+                        <Grid.Col ml={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
                             <MissionAndVissionCard title="Mission" description=" To empower individuals, startups, and organizations to thrive through entrepreneurship, innovation, and collaboration." />
                         </Grid.Col>
-                        
-                        <Grid.Col mx={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
+
+                        <Grid.Col mr={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
                             <MissionAndVissionCard title="Vision" description="To create a vibrant and sustainable startup ecosystem in Bauchi State, where ideas flourish, businesses thrive, and communities prosper." />
                         </Grid.Col>
                     </Grid>
@@ -77,19 +53,7 @@ export default function AboutPage() {
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
-                    <Flex justify={"center"} gap={20} wrap={"wrap"}>
-                        <ProgramsCard index={2} icon={<LiaRocketSolid fontSize={50} />} title="Accelerator Programs" description="Intensive programs designed to accelerate the growth of early-stage startups through mentorship, training, and access to resources." />
-
-                        <ProgramsCard icon={<GrGrow fontSize={50} />} title="Incubation" description="Support for startups in their early stages, including workspace, mentorship, and access to funding opportunities." />
-
-                        <ProgramsCard index={4} icon={<GiTeacher fontSize={50} />} title="Workshops and Training" description="Educational programs covering various aspects of entrepreneurship, business development, technology, and innovation." />
-                    </Flex>
-
-                    <Flex justify={"center"} gap={30} wrap={"wrap"}>
-                        <ProgramsCard icon={<FaConnectdevelop fontSize={50} />} title="Networking Events" description="Regular meetups, pitch nights, and networking sessions to connect entrepreneurs, investors, and industry professionals." />
-
-                        <ProgramsCard index={4} icon={<PiPresentationLight fontSize={50} />} title="Startup Showcases" description="Opportunities for startups to showcase their products, services, and innovations to potential investors, customers, and partners." />
-                    </Flex>
+                    <ProgramsRenderer showAll={true} />
                 </Stack>
 
                 <Space h={100} />
@@ -112,20 +76,6 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack maw={"100vw"} align="center" justify="center" px={20} mih={400} h={"auto"} bg={ashBg}>
-                    <form onSubmit={handleEmailSub}>
-                        <Stack align="center">
-                            <Title c={"black"}>Sign up for news letters</Title>
-                            <Text c="black">Sign up  for Startup Bauchi's news letter and be among the first people to know about upcoming events</Text>
-                            <Group gap={10}>
-                                <Group align="flex-end">
-                                    <TextInput radius={10} size="lg" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="hello@startupbauchi.com" style={{ flex: 1 }} />
-                                    <CustomSolidButton size="lg" leftSection={<BsSendFill />} buttonText="Subscribe" type="submit" bg={secondaryColor} radius={10} />
-                                </Group>
-                            </Group>
-                        </Stack>
-                    </form>
-                </Stack>
             </Flex>
         </Box>
     )

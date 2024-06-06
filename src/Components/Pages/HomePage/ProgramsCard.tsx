@@ -13,13 +13,14 @@ interface cardProps {
 
 export default function ProgramsCard(props: cardProps) {
     const [IsHover, setIsHover] = useState(false)
+    const incubation = props.title.toLowerCase() !== "incubation"
 
     function HoverContent() {
         return (
             <Stack style={{ cursor: "pointer" }} justify="center" align="center">
                 <Title ta={"center"} size={"18px"}>Be a part of our {props.title}</Title>
                 <Text ta={"center"}>{props.description}</Text>
-                <CustomSolidButton bg={secondaryColor} w={"100%"} buttonText={`Sign up for ${props.title}`} />
+                <CustomSolidButton c={incubation ? "" : "#ececec"} disabled={!incubation} bg={secondaryColor} w={"100%"} buttonText={incubation ? `Sign up for ${props.title}` : "Coming Soon"} />
             </Stack>
         )
     }

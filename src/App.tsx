@@ -1,4 +1,4 @@
-import { AppShell, Burger, Flex, Group, Image, Stack, Text, Title, Tooltip } from '@mantine/core';
+import { AppShell, Burger, Flex, Group, Image, Text, Title } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom"
 import { Route, Routes } from "react-router-dom";
@@ -6,15 +6,15 @@ import Homepage from "./Components/Pages/HomePage/Homepage";
 import AboutPage from "./Components/Pages/About/About";
 import ProgramsPage from "./Components/Pages/Programs/Programs";
 import ResourcesPage from "./Components/Pages/GetInvolved/GetInvolved";
-import TestimonialsPage from "./Components/Pages/Testimonials/TestimonialsPage";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
-import { FaTelegram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import BlogPage from './Components/Pages/News/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
-import { secondaryColor } from './Components/Reuseables/Color';
+import { ashBg, secondaryColor } from './Components/Reuseables/Color';
 import logo from "./assets/logo.jpg"
+import { navlinks } from './Components/Utils/navlinks';
+import FooterSection from './Components/Reuseables/Footer';
 
 
 export default function App() {
@@ -23,17 +23,6 @@ export default function App() {
 
   const location = useLocation()
 
-  const navlinks = [
-    // { id: 1, path: "/", name: "Home" },
-    { id: 2, path: "/about", name: "About us" },
-    { id: 3, path: "/programs", name: "Programs" },
-    { id: 4, path: "/blog", name: "Blog" },
-    { id: 5, path: "/success-stories", name: "Success Stories" },
-    { id: 6, path: "/get-involved", name: "Get Involved" },
-    { id: 7, path: "/startups", name: "Startups" },
-
-  ]
-
   return (
     <AppShell
       className='app-shell'
@@ -41,7 +30,7 @@ export default function App() {
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header>
+      <AppShell.Header maw={"100vw"}>
         <Group h="100%" px="md">
           <Burger right={20} pos={'absolute'} opened={opened} onClick={toggle} hiddenFrom="sm" size="md" />
           <Group style={{ flex: 1 }} justify="space-between">
@@ -75,45 +64,24 @@ export default function App() {
           })}
         </Flex>
       </AppShell.Navbar>
-      <AppShell.Main mt={80} m={0} p={0}>
+
+      <AppShell.Main maw={"100vw"} mt={80} m={0} p={0}>
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
-          <Route path="/success-stories" element={<TestimonialsPage />} />
           <Route path='get-involved' element={<GetInvolvedPage />} />
-          <Route path='startups' element={<StartupPage />} />
+          <Route path='join-startup' element={<StartupPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Outlet />
       </AppShell.Main>
-      <AppShell.Footer withBorder={false} bg={"#f9fafc"} h={"auto"} mih={100} pos={"relative"}>
-        <Stack py={"10px"} h={"100%"} align='center' justify="center" >
-          <Title mt={20} size={"md"} c={"black"} ta={"center"}>Connect with us on social media</Title>
-          <Group gap={25} justify="center">
-            <Tooltip position="bottom" label="Join Telegram commnity">
-              <Link to={""}>
-                <FaTelegram color={secondaryColor} fontSize={25} />
-              </Link>
-            </Tooltip>
-
-            <Tooltip position="bottom" label="Join Whatsapp community">
-              <Link to={""}>
-                <FaWhatsapp color={secondaryColor} fontSize={25} />
-              </Link>
-            </Tooltip>
-            <Tooltip position="bottom" label="Join Twitter community">
-              <Link to={""}>
-                <FaTwitter color={secondaryColor} fontSize={25} />
-              </Link>
-            </Tooltip>
-          </Group>
-          <Text size={"md"}>© 2024 Startup Bauchi</Text>
-        </Stack>
+      <AppShell.Footer mt={100} withBorder={false} bg={ashBg} h={"auto"} mih={100} pos={"relative"}>
+        <FooterSection />
       </AppShell.Footer>
-    </AppShell>
+    </AppShell >
 
   );
 }

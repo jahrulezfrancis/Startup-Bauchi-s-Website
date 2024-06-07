@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ReactElement, useState } from "react";
 import CustomSolidButton from "../../Reuseables/SolidButton";
 import { secondaryColor } from "../../Reuseables/Color";
+import { Link } from "react-router-dom";
 
 interface cardProps {
     title: string;
@@ -20,7 +21,9 @@ export default function ProgramsCard(props: cardProps) {
             <Stack style={{ cursor: "pointer" }} justify="center" align="center">
                 <Title ta={"center"} size={"18px"}>Be a part of our {props.title}</Title>
                 <Text ta={"center"}>{props.description}</Text>
-                <CustomSolidButton c={incubation ? "" : "#ececec"} disabled={!incubation} bg={secondaryColor} w={"100%"} buttonText={incubation ? `Sign up for ${props.title}` : "Coming Soon"} />
+                <Link to={"/program-signup"}>
+                    <CustomSolidButton onClick={() => localStorage.setItem("program", props.title)} c={incubation ? "" : "#ececec"} disabled={!incubation} bg={secondaryColor} w={"100%"} buttonText={incubation ? `Sign up for ${props.title}` : "Coming Soon"} />
+                </Link>
             </Stack>
         )
     }

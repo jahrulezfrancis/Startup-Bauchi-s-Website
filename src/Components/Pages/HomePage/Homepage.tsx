@@ -28,7 +28,6 @@ export default function Homepage() {
                 <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
                 <ProgramsRenderer showAll={false} />
-                {/* //replace first item with bootcap */}
 
                 <Flex justify={"center"}>
                     <Link to={"/programs"}>
@@ -78,7 +77,9 @@ export default function Homepage() {
                 <Title my={20} ta={"center"}>Join Startups</Title>
                 <Grid >
                     <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
-                        <Image w={"80%"} ml={"auto"} src={AboutImage} />
+                        <Flex w={"100%"} justify={"center"}>
+                            <Image w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
+                        </Flex>
                     </Grid.Col>
 
                     <Grid.Col mr={"auto"} span={{ base: 12, md: 12, lg: 6 }}>
@@ -95,8 +96,6 @@ export default function Homepage() {
                 <Stack w={{ base: "100%", md: "100%", lg: "100%" }}>
                     <ContinousSlider />
                 </Stack>
-
-                {/* <PartnersSlider /> */}
             </Flex>
             <Space h={100} />
         </Box>

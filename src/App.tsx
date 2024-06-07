@@ -15,6 +15,7 @@ import { ashBg, secondaryColor } from './Components/Reuseables/Color';
 import logo from "./assets/logo.jpg"
 import { navlinks } from './Components/Utils/navlinks';
 import FooterSection from './Components/Reuseables/Footer';
+import ProgramsSignupPage from './Components/Pages/Programs/SignupPage';
 
 
 export default function App() {
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path='get-involved' element={<GetInvolvedPage />} />
           <Route path='join-startup' element={<StartupPage />} />
+          <Route path='program-signup' element={<ProgramsSignupPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Outlet />

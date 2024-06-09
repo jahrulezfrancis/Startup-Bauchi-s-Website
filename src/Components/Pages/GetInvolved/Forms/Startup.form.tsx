@@ -23,6 +23,8 @@ export default function StartupSignUpForm(props: formProps) {
     const emailjs_pubkey = import.meta.env.VITE_EMAILJS_PUBKEY;
     const serviceKey = import.meta.env.VITE_EMAIL_JS_SERVICE;
     const templateId = import.meta.env.VITE_EMAILJS_STARTUP_TEMP;
+    const emailReceiver = import.meta.env.VITE_EMAIL_RECEIVER
+    console.log(emailReceiver)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -32,8 +34,9 @@ export default function StartupSignUpForm(props: formProps) {
     const templateSheme = {
         from_name: formData.companyName,
         from_email: formData.companyEmail,
+        message: formData.message,
+        to_email: emailReceiver,
         to_name: "Startup Bauchi Admin",
-        message: formData.message
     }
 
     function clearForm() {

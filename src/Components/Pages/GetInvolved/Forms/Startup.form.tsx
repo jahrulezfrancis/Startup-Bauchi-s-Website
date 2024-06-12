@@ -13,9 +13,10 @@ import { emailReceiver, emailjs_pubkey, serviceKey, templateId } from "../../../
 interface formProps {
     showIcon: boolean;
     formPosition: "start" | "end" | "center";
+    buttonText?: string;
 }
 
-export default function StartupSignUpFzorm(props: formProps) {
+export default function StartupSignUpForm(props: formProps) {
     const [loading, setLoading] = useState(false)
     const [formData, setFormData] = useState({
         companyName: "",
@@ -100,7 +101,10 @@ export default function StartupSignUpFzorm(props: formProps) {
                         <TextInput w={"100%"} label="Company email address" radius={8} size="md" name="companyEmail" value={formData.companyEmail} onChange={handleChange} type="email" placeholder="Your Email" required />
 
                         <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
-                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit" buttonText="Submit Application" />
+
+                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit"
+                            buttonText={props.buttonText ? props.buttonText : "Submit Application"} />
+
                     </Stack>
                 </form>
             </Flex>

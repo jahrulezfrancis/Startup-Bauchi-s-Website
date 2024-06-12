@@ -3,6 +3,7 @@ import { getDocs } from "firebase/firestore";
 import StartupCard from "./StartupCard";
 import { useEffect, useState } from "react";
 import { startupRef } from "../../Utils/firebase.config";
+import StartupSignUpForm from "../GetInvolved/Forms/Startup.form";
 
 interface programDataType {
     id: string;
@@ -75,9 +76,11 @@ export default function StartupPage() {
     return (
         <Box pt={20}>
             <Stack>
+                <Title fw={500} ta={"center"}>Sign up as a startup with Startup Bauchi</Title>
                 {/* create a form for startup enrollment */}
+                <StartupSignUpForm buttonText={"Submit Application"} showIcon={false} formPosition="center" />
                 <Stack p={10}>
-                    <Title ta="center">Startups Powered by Us</Title>
+                    <Title fw={400} ta="center">Startups Powered by Us</Title>
                     <Text ta="center">
                         Discover the innovative startups that are making waves with the support of Startup Bauchi.
                     </Text>

@@ -74,16 +74,25 @@ export default function Homepage() {
             <Space h={20} />
 
             <Flex direction={"column"} py={20} bg={ashBg} mx={"auto"}>
-                <Title my={20} ta={"center"}>Join Startups</Title>
+
+                <FadeInOnScrollAnimationContainer children={
+                    <Title my={20} ta={"center"}>Join Startups</Title>
+                } />
+
                 <Grid >
+
                     <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
-                        <Flex w={"100%"} justify={"center"}>
-                            <Image w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
-                        </Flex>
+                        <FadeInOnScrollAnimationContainer children={
+                            <Flex w={"100%"} justify={"center"}>
+                                <Image w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
+                            </Flex>
+                        } />
                     </Grid.Col>
 
                     <Grid.Col mr={"auto"} span={{ base: 12, md: 12, lg: 6 }}>
-                        <StartupSignUpForm formPosition="start" showIcon={false} />
+                        <FadeInOnScrollAnimationContainer children={
+                            <StartupSignUpForm formPosition="start" showIcon={false} />
+                        } />
                     </Grid.Col>
                 </Grid>
             </Flex>

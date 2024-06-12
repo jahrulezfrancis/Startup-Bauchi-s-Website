@@ -11,7 +11,13 @@ export default function FooterSection() {
     return (
         <>
             <Grid gutter={{ base: "xl" }} style={{ justifySelf: "center" }} mx={"lg"} px={20} py={"20px"}>
-                <Grid.Col  span={{ base: 12, md: 6, lg: 3 }}>
+
+                <Grid.Col ml={"auto"} span={{ base: 12, md: 6, lg: 3 }}>
+                    <Title>Startup Bauchi</Title>
+                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente aperiam odit aliquid neque molestiae reprehenderit! Eaque dolorem accusamus iste rerum perspiciatis, deleniti maxime accusantium numquam alias blanditiis aspernatur quae?</Text>
+                </Grid.Col>
+
+                <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
                     <Stack justify='start'>
                         <Title fw={500} c={"black"} ta={"start"}>Engage & Interact</Title>
                         <Stack gap={1} justify="center">

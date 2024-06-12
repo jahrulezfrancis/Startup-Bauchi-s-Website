@@ -38,11 +38,16 @@ export default function AboutPage() {
                     <Grid p={20} gutter="35px">
 
                         <Grid.Col ml={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
-                            <MissionAndVissionCard title="Mission" description=" To empower individuals, startups, and organizations to thrive through entrepreneurship, innovation, and collaboration." />
+                            <FadeInOnScrollAnimationContainer children={
+                                <MissionAndVissionCard title="Mission" description=" To empower individuals, startups, and organizations to thrive through entrepreneurship, innovation, and collaboration." />
+                            } />
                         </Grid.Col>
 
                         <Grid.Col mr={"auto"} span={{ base: 12, md: 6, lg: 5 }}>
-                            <MissionAndVissionCard title="Vision" description="To create a vibrant and sustainable startup ecosystem in Bauchi State, where ideas flourish, businesses thrive, and communities prosper." />
+                            <FadeInOnScrollAnimationContainer children={
+                                <MissionAndVissionCard title="Vision" description="To create a vibrant and sustainable startup ecosystem in Bauchi State, where ideas flourish, businesses thrive, and communities prosper." />
+                            } />
+
                         </Grid.Col>
                     </Grid>
                 </Stack>

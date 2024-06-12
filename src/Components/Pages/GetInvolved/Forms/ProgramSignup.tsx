@@ -4,23 +4,26 @@ import emailjs from '@emailjs/browser';
 import { notifications } from "@mantine/notifications";
 import { secondaryColor } from "../../../Reuseables/Color";
 import CustomSolidButton from "../../../Reuseables/SolidButton";
+import { emailReceiver, emailjs_pubkey, serviceKey, templateId } from "../../../Utils/envExports";
+import { doc, setDoc } from "firebase/firestore";
+import { programsRef } from "../../../Utils/firebase.config";
 
 
 export default function ProgramSignUpForm() {
     const [loading, setLoading] = useState(false)
     const [value, setValue] = useState<ComboboxItem | null>(null);
-    const [isCompany, setIsCompany] = useState(false)
-    const [formData, setFormData] = useState({
-        fullName: "",
-        emailAddress: "",
-        isCompany: isCompany
-    });
 
     const selectedProgram = localStorage.getItem('program')
 
-    const emailjs_pubkey = import.meta.env.VITE_EMAILJS_PUBKEY;
-    const serviceKey = import.meta.env.VITE_EMAIL_JS_SERVICE;
-    const templateId = import.meta.env.VITE_EMAILJS_STARTUP_TEMP;
+    const [isCompany, setIsCompany] = useState(false)
+    const [formData, setFormData] = useState({
+        participantName: "",
+        emailAddress: "",
+        selectedProgram: value ? value : selectedProgram,
+        isCompany: isCompany
+    });
+
+
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -28,40 +31,57 @@ export default function ProgramSignUpForm() {
     };
 
     const templateSheme = {
-        from_name: formData.fullName,
+        from_name: formData.participantName,
         from_email: formData.emailAddress,
+        to_email: emailReceiver,
         to_name: "Startup Bauchi Admin",
     }
 
     function clearForm() {
-        setFormData({ fullName: "", emailAddress: "", isCompany: false })
+        setFormData({ participantName: "", emailAddress: "", isCompany: false, selectedProgram: "" })
     }
 
-    const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        setLoading(true)
+        setLoading(true);
 
-        const { fullName, emailAddress } = formData;
-        if (fullName && emailAddress) {
-            // handle form submission
-            emailjs.send(serviceKey, templateId, templateSheme, emailjs_pubkey)
-                .then(
-                    () => {
-                        setLoading(false)
-                        clearForm()
-                        return notifications.show({ title: "Application sent successfully", message: "Your Application has been received successfully. Our team will get back to you within 48 hours. Regards", color: "teal", })
-                    },
-                    (error) => {
-                        console.log('FAILED...', error.text);
-                        setLoading(false)
-                        return notifications.show({ title: "Registration Failed", message: "Your Application was not sent successfully. Please try again", color: "red" })
-                    },
-                );
+        const { participantName, emailAddress } = formData;
+
+        if (participantName && emailAddress) {
+            try {
+                // Send email
+                await emailjs.send(serviceKey, templateId, templateSheme, emailjs_pubkey);
+                notifications.show({
+                    title: "Registration successful",
+                    message: "Your Registration was successful. Our team will get back to you within 48 hours. Regards",
+                    color: "teal",
+                });
+
+                // Update Firestore document
+                await setDoc(doc(programsRef), {
+                    participantName: participantName,
+                    emailAddress: emailAddress,
+                    isCompany: isCompany,
+                    selectedProgram: selectedProgram
+                });
+                setLoading(false)
+                clearForm();
+            } catch (error) {
+                console.error('Submission failed', error);
+                notifications.show({
+                    title: "Registration Failed",
+                    message: "Your Registration was not successful. Please try again",
+                    color: "red"
+                });
+            } finally {
+                setLoading(false);
+            }
         } else {
             alert("Please fill out all fields.");
-            setLoading(false)
+            setLoading(false);
         }
     };
+
 
 
     return (
@@ -77,7 +97,7 @@ export default function ProgramSignUpForm() {
                             checked={isCompany} onChange={(event) => setIsCompany(event.currentTarget.checked)}
                         />
 
-                        <TextInput w={"100%"} label={isCompany ? "Company Name" : "Full Name"} radius={8} size="md" name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Company or startup name" required />
+                        <TextInput w={"100%"} label={isCompany ? "Company Name" : "Participant Name"} radius={8} size="md" name="participantName" value={formData.participantName} onChange={handleChange} placeholder="Company or startup name" required />
 
                         <TextInput w={"100%"} label={isCompany ? "Company email address" : "Email Address"} radius={8} size="md" name="emailAddress" value={formData.emailAddress} onChange={handleChange} type="email" placeholder="Your Email" required />
 
@@ -93,9 +113,7 @@ export default function ProgramSignUpForm() {
                             onChange={(_value, option) => setValue(option)}
                         />
 
-
-                        {/* <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" /> */}
-                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit" buttonText="Register " />
+                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit" buttonText="Register" />
                     </Stack>
                 </form>
             </Flex>

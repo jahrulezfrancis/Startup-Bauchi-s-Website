@@ -37,14 +37,15 @@ export default function App() {
           <Group style={{ flex: 1 }} justify="space-between">
             <Flex td={"none"} to={"/"} component={Link} gap={5} align={"center"}>
               <Image radius={50} w={50} src={logo} />
-              <Title c={secondaryColor} ta={"start"} size={"md"}>Startup Bauchi</Title>
+              <Title c={location.pathname === "/" ? "#046d63" : secondaryColor} ta={"start"} size={"md"}>Startup Bauchi</Title>
             </Flex>
             <Group ml="xl" visibleFrom="sm">
               <Flex gap={20}>
                 {navlinks.map((item) => {
+                  const activeLink = item.path === location.pathname;
                   return (
-                    <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                      <Text fw={700} c={secondaryColor} style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
+                    <NavLink className={activeLink ? "active" : ""} key={item.id} to={item.path}>
+                      <Text fw={activeLink ? 900 : 700} c={activeLink ? "#046d63" : secondaryColor} style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )
                 })}

@@ -1,15 +1,19 @@
 import { Box, Stack, Flex, Space, TextInput, Textarea } from "@mantine/core";
+import { doc, setDoc } from "firebase/firestore";
 import { ChangeEvent, FormEvent, useState } from "react";
 import emailjs from '@emailjs/browser';
 import { GoOrganization } from "react-icons/go";
 import { notifications } from "@mantine/notifications";
 import { secondaryColor } from "../../../Reuseables/Color";
 import CustomSolidButton from "../../../Reuseables/SolidButton";
+import { programsRef } from "../../../Utils/firebase.config";
+import { emailReceiver, emailjs_pubkey, serviceKey, templateId } from "../../../Utils/envExports";
 
 
 interface formProps {
     showIcon: boolean;
     formPosition: "start" | "end" | "center";
+    buttonText?: string;
 }
 
 export default function StartupSignUpForm(props: formProps) {
@@ -20,9 +24,6 @@ export default function StartupSignUpForm(props: formProps) {
         message: "",
     });
 
-    const emailjs_pubkey = import.meta.env.VITE_EMAILJS_PUBKEY;
-    const serviceKey = import.meta.env.VITE_EMAIL_JS_SERVICE;
-    const templateId = import.meta.env.VITE_EMAILJS_STARTUP_TEMP;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -32,39 +33,56 @@ export default function StartupSignUpForm(props: formProps) {
     const templateSheme = {
         from_name: formData.companyName,
         from_email: formData.companyEmail,
+        message: formData.message,
+        to_email: emailReceiver,
         to_name: "Startup Bauchi Admin",
-        message: formData.message
     }
 
     function clearForm() {
         setFormData({ companyName: "", companyEmail: "", message: "" })
     }
 
-    const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        setLoading(true)
 
-        const { companyName, companyEmail, message } = formData;
-        if (companyName && companyEmail && message) {
-            // handle form submission
-            emailjs.send(serviceKey, templateId, templateSheme, emailjs_pubkey)
-                .then(
-                    () => {
-                        setLoading(false)
-                        clearForm()
-                        return notifications.show({ title: "Application sent successfully", message: "Your Application has been received successfully. Our team will get back to you within 48 hours. Regards", color: "teal", })
-                    },
-                    (error) => {
-                        console.log('FAILED...', error.text);
-                        setLoading(false)
-                        return notifications.show({ title: "Registration Failed", message: "Your Application was not sent successfully. Please try again", color: "red" })
-                    },
-                );
+    const handleFormSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setLoading(true);
+
+        const { companyEmail, companyName, message } = formData;
+
+        if (companyEmail && companyName && message) {
+            try {
+                // Send email
+                await emailjs.send(serviceKey, templateId, templateSheme, emailjs_pubkey);
+                notifications.show({
+                    title: "Registration successful",
+                    message: "Your Registration was successful. Our team will get back to you within 48 hours. Regards",
+                    color: "teal",
+                });
+
+                // Update Firestore document
+                await setDoc(doc(programsRef), {
+                    companyName: companyName,
+                    companyEmail: companyEmail,
+                    message: message,
+                });
+                setLoading(false)
+                clearForm();
+            } catch (error) {
+                console.error('Submission failed', error);
+                notifications.show({
+                    title: "Registration Failed",
+                    message: "Your Registration was not successful. Please try again",
+                    color: "red"
+                });
+            } finally {
+                setLoading(false);
+            }
         } else {
             alert("Please fill out all fields.");
-            setLoading(false)
+            setLoading(false);
         }
     };
+
 
 
     return (
@@ -83,7 +101,10 @@ export default function StartupSignUpForm(props: formProps) {
                         <TextInput w={"100%"} label="Company email address" radius={8} size="md" name="companyEmail" value={formData.companyEmail} onChange={handleChange} type="email" placeholder="Your Email" required />
 
                         <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
-                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit" buttonText="Submit Application" />
+
+                        <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit"
+                            buttonText={props.buttonText ? props.buttonText : "Submit Application"} />
+
                     </Stack>
                 </form>
             </Flex>

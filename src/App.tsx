@@ -7,7 +7,7 @@ import AboutPage from "./Components/Pages/About/About";
 import ProgramsPage from "./Components/Pages/Programs/Programs";
 import ResourcesPage from "./Components/Pages/GetInvolved/GetInvolved";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
-import BlogPage from './Components/Pages/News/Blog';
+import BlogPage from './Components/Pages/Blog/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"

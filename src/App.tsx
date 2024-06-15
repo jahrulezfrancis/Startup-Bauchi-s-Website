@@ -16,6 +16,9 @@ import logo from "./assets/logo.jpg"
 import { navlinks } from './Components/Utils/navlinks';
 import FooterSection from './Components/Reuseables/Footer';
 import ProgramsSignupPage from './Components/Pages/Programs/SignupPage';
+import AdminPage from './Components/Pages/Admin/Admin';
+import RequireAuth from './Components/Pages/Auth/RequireAuth';
+import LoginPage from './Components/Pages/Auth/Login';
 
 
 export default function App() {
@@ -70,13 +73,18 @@ export default function App() {
       <AppShell.Main maw={"100vw"} mt={80} m={0} p={0}>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          {/* auth routes  */}
+          <Route path="/admin" element={<RequireAuth children={<AdminPage />} />} />
+          <Route path="/admin-login" element={<LoginPage />} />
+
+          {/* resources route */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
-          <Route path='get-involved' element={<GetInvolvedPage />} />
-          <Route path='join-startup' element={<StartupPage />} />
-          <Route path='program-signup' element={<ProgramsSignupPage />} />
+          <Route path='/get-involved' element={<GetInvolvedPage />} />
+          <Route path='/join-startup' element={<StartupPage />} />
+          <Route path='/program-signup' element={<ProgramsSignupPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <Outlet />

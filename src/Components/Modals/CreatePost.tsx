@@ -1,25 +1,28 @@
-import { useDisclosure, useSetState } from '@mantine/hooks';
+import { useDisclosure } from '@mantine/hooks';
 import { FileInput, Modal, Stack, TextInput, Textarea } from '@mantine/core';
 import CustomSolidButton from '../Reuseables/SolidButton';
 import { Text, Group, rem } from '@mantine/core';
 import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, } from '@mantine/dropzone';
 import { IoCreate } from "react-icons/io5";
+import { useState } from 'react';
 
 
 interface imageType {
-    
+    images: string[]
 }
 
 export default function CreateNewPost() {
     const [opened, { open, close }] = useDisclosure(false);
 
+    const [images, setImages] = useState<imageType[]>()
 
-    const [postDetails, setPostDetails] = useSetState({
+
+    const [postDetails, setPostDetails] = useState({
         title: "",
         content: "",
         featuredImage: undefined,
-        images: [],
+        // images: [],
         author: "",
         createdAt: new Date().toUTCString()
     })
@@ -29,7 +32,7 @@ export default function CreateNewPost() {
 
         return (
             <Dropzone
-                onDrop={(files) => console.log('accepted files', files.map((item)=> setPostDetails({images: item.name})))}
+                onDrop={(files) => console.log('accepted files', files.map((item) => setImages(item.path)))}
                 onReject={(files) => console.log('rejected files', files)}
                 maxSize={5 * 1024 ** 2}
                 accept={IMAGE_MIME_TYPE}

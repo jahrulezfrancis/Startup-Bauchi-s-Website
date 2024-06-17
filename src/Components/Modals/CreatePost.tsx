@@ -7,6 +7,9 @@ import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, } from '@mantine/dropzone';
 import { IoCreate } from "react-icons/io5";
 
 
+interface imageType {
+    
+}
 
 export default function CreateNewPost() {
     const [opened, { open, close }] = useDisclosure(false);
@@ -26,7 +29,7 @@ export default function CreateNewPost() {
 
         return (
             <Dropzone
-                onDrop={(files) => console.log('accepted files', files)}
+                onDrop={(files) => console.log('accepted files', files.map((item)=> setPostDetails({images: item.name})))}
                 onReject={(files) => console.log('rejected files', files)}
                 maxSize={5 * 1024 ** 2}
                 accept={IMAGE_MIME_TYPE}

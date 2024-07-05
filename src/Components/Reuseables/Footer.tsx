@@ -14,7 +14,7 @@ export default function FooterSection() {
 
                 <Grid.Col ml={"auto"} span={{ base: 12, md: 6, lg: 3 }}>
                     <Title>Startup Bauchi</Title>
-                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente aperiam odit aliquid neque molestiae reprehenderit! Eaque dolorem accusamus iste rerum perspiciatis, deleniti maxime accusantium numquam alias blanditiis aspernatur quae?</Text>
+                    <Text>Empowering individuals, startups, and organizations to thrive through entrepreneurship, innovation, and collaboration.</Text>
                 </Grid.Col>
 
                 <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>

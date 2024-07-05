@@ -18,7 +18,7 @@ export default function TimelineComponent() {
                     <h3 className="vertical-timeline-element-title">Startup Bauchi Campus series 1.0</h3>
                     <h4 className="vertical-timeline-element-subtitle">Oppolo Hub, Bauchi, NG</h4>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta rem necessitatibus quos nesciunt. Quia repellat, incidunt porro atque, inventore labore dolor tenetur quibusdam voluptate ea rem, soluta veniam necessitatibus perspiciatis.
+                        Featuring a diverse lineup of startups, this series serves as a vibrant hub for the local entrepreneurial ecosystem. Attendees will have the opportunity to engage with innovative founders, learn from industry experts, and explore collaborative opportunities that can propel their businesses forward.
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
@@ -30,7 +30,7 @@ export default function TimelineComponent() {
                     <h3 className="vertical-timeline-element-title">Startup Bauchi Campus series 2.0</h3>
                     <h4 className="vertical-timeline-element-subtitle">Bauchi, NG</h4>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex illum vel debitis tenetur cupiditate ad ea nam, minima praesentium minus voluptatem, sunt accusamus iste dolor dolore, nostrum deleniti accusantium eaque.
+                        Featuring a diverse lineup of startups, this series serves as a vibrant hub for the local entrepreneurial ecosystem. Attendees will have the opportunity to engage with innovative founders, learn from industry experts, and explore collaborative opportunities that can propel their businesses forward.
                     </p>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
@@ -42,7 +42,8 @@ export default function TimelineComponent() {
                     <h3 className="vertical-timeline-element-title">Ideation Bootcamp</h3>
                     <h4 className="vertical-timeline-element-subtitle">Bauchi, NG</h4>
                     <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores tenetur molestiae natus quos nesciunt optio minus! Officiis deleniti explicabo, blanditiis vel consequatur illo minima quis atque voluptates. Eum, fugiat cupiditate!
+
+                        Unlock your creative potential and ignite your innovative mindset at our Ideation Bootcamp. This immersive, one-day event is designed to challenge your thinking, foster collaboration, and empower you to generate groundbreaking ideas.
                     </p>
                 </VerticalTimelineElement>
 

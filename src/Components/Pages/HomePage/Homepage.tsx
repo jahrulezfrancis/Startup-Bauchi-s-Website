@@ -13,7 +13,7 @@ import CustomSolidButton from "../../Reuseables/SolidButton";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
 import StartupSignUpForm from "../GetInvolved/Forms/Startup.form";
-import ContinousSlider from "../../AnimationContainers/ContinousSlide";
+// import ContinousSlider from "../../AnimationContainers/ContinousSlide";
 
 
 
@@ -31,7 +31,7 @@ export default function Homepage() {
 
                 <Flex justify={"center"}>
                     <Link to={"/programs"}>
-                        <CustomSolidButton color={secondaryColor} style={{ alignSelf: "center" }} mt={20} w={300} mx={200} variant="outline" buttonText="Explore all programs" />
+                        <CustomSolidButton buttonCol={secondaryColor} style={{ alignSelf: "center" }} mt={20} w={300} mx={200} variant="outline" buttonText="Explore all programs" />
                     </Link>
                 </Flex>
 
@@ -95,16 +95,6 @@ export default function Homepage() {
                         } />
                     </Grid.Col>
                 </Grid>
-            </Flex>
-
-            <Space h={100} />
-
-
-            <Flex direction={"column"} w={"100%"} align={"center"} justify={"center"}>
-                <Title mb={50}>Our partners</Title>
-                <Stack w={{ base: "100%", md: "100%", lg: "100%" }}>
-                    <ContinousSlider />
-                </Stack>
             </Flex>
             <Space h={100} />
         </Box>

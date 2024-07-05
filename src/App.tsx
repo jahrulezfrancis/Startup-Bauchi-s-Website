@@ -7,7 +7,7 @@ import AboutPage from "./Components/Pages/About/About";
 import ProgramsPage from "./Components/Pages/Programs/Programs";
 import ResourcesPage from "./Components/Pages/GetInvolved/GetInvolved";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
-import BlogPage from './Components/Pages/Blog/Blog';
+// import BlogPage from './Components/Pages/Blog/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
@@ -80,7 +80,7 @@ export default function App() {
           {/* resources route */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+          {/* <Route path="/blog" element={<BlogPage />} /> */}
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path='/get-involved' element={<GetInvolvedPage />} />
           <Route path='/join-startup' element={<StartupPage />} />

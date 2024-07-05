@@ -49,7 +49,7 @@ function Card({ image, title, description }: CardProps) {
                 <Text ta={"center"} c={"white"} lh={1.2} size="md">
                     {description}
                 </Text>
-                <CustomSolidButton bg={secondaryColor} w={"200px"} variant="white" color="dark" buttonText='Read more' />
+                <CustomSolidButton bg={secondaryColor} w={"200px"} variant="white" c={"white"} buttonText='Read more' />
             </Stack>
         </Paper>
     );

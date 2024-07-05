@@ -1,6 +1,6 @@
 import { Box, Stack, Title, Grid, Text, Flex, Space, Accordion } from "@mantine/core";
 import "../../../index.css"
-import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
+// import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
 import { ashBg } from "../../Reuseables/Color";
 import "../../AnimationContainers/animations.css"
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
@@ -11,9 +11,9 @@ import ProgramsRenderer from "../../Renderers/ProgramRenderers";
 export default function AboutPage() {
     const faqList = [
         { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q2", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q3", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q4", question: "What is startup bacuhi all about?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" }
+        { id: "q2", question: "What is eligle to join startup Bauchi?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q3", question: "Is startup Bauchi a non-profit organization?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
+        { id: "q4", question: "What are the requirements for becoming a partner", answer: "To become a startup bauchi partner you neeed..." }
     ]
     const items = faqList.map((item) => (
         <Accordion.Item key={item.id} value={item.id}>
@@ -63,10 +63,10 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                <Stack>
+                {/* <Stack>
                     <Title ta={"center"}>What our clients say about us</Title>
                     <TestimonialsRenderer />
-                </Stack>
+                </Stack> */}
 
                 <Space h={100} />
 

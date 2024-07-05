@@ -6,7 +6,7 @@ import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, } from '@mantine/dropzone';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { IoCreate } from "react-icons/io5";
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { addDoc } from 'firebase/firestore';
 import { postRef, storage } from '../Utils/firebase.config';
 import { notifications } from '@mantine/notifications';
@@ -33,8 +33,6 @@ console.log(postDetails.author)
     // State to hold the uploaded files
     const [files, setFiles] = useState<UploadedFile[]>([]);
     const [uploading, setUploading] = useState(false);
-    const [disabled, setDisabled] = useState(true);
-    const [error, setError] = useState<string | null>(null);
 
     // Handle files drop
     const handleDrop = (droppedFiles: File[]) => {
@@ -60,7 +58,6 @@ console.log(postDetails.author)
     const uploadFiles = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setUploading(true);
-        setError(null);
         try {
             const uploadPromises = files.map(async (file) => {
                 const storageRef = ref(storage, `uploads/${file.name}`);
@@ -85,7 +82,6 @@ console.log(postDetails.author)
             // Reset files after upload
             setFiles([]);
         } catch (err) {
-            setError('Failed to upload files');
             console.error(err);
         } finally {
             setUploading(false);
@@ -158,7 +154,7 @@ console.log(postDetails.author)
                             {uploading ?
                                 <Loader size={"sm"} />
                                 :
-                                <CustomSolidButton disabled={disabled} type="submit" buttonText='Publish post' />
+                                <CustomSolidButton type="submit" buttonText='Publish post' />
                             }
                         </Group>
                     </Stack>

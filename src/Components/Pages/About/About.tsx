@@ -58,7 +58,7 @@ export default function AboutPage() {
                     <Title ta="center">What we do at Startup Bauchi</Title>
                     <Text ta="center">We offer a range of programs and initiatives to support entrepreneurs and startups at various stages of development, they include:</Text>
 
-                    <ProgramsRenderer showAll={true} />
+                        <ProgramsRenderer showHoverContent={false} showAll={true} />
                 </Stack>
 
                 <Space h={100} />

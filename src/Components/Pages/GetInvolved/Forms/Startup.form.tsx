@@ -103,7 +103,7 @@ export default function StartupSignUpForm(props: formProps) {
                         <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
 
                         <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit"
-                            buttonText={props.buttonText ? props.buttonText : "Submit Application"} />
+                            buttonText={props.buttonText ? props.buttonText : "Join now"} />
 
                     </Stack>
                 </form>

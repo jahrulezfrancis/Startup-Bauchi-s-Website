@@ -1,7 +1,10 @@
-import { Box } from "@mantine/core";
+import { Box, Text } from "@mantine/core";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
+import "./timeline.styles.css"
 import { MdDeviceHub } from "react-icons/md";
+import { Link } from "react-router-dom";
+import CustomSolidButton from "./SolidButton";
 
 export default function TimelineComponent() {
     return (
@@ -15,11 +18,11 @@ export default function TimelineComponent() {
                     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     icon={<MdDeviceHub />}
                 >
-                    <h3 className="vertical-timeline-element-title">Startup Bauchi Campus series 1.0</h3>
+                    <h3 className="vertical-timeline-element-title done">Startup Bauchi Campus series 1.0</h3>
                     <h4 className="vertical-timeline-element-subtitle">Oppolo Hub, Bauchi, NG</h4>
-                    <p>
+                    <Text>
                         Featuring a diverse lineup of startups, this series serves as a vibrant hub for the local entrepreneurial ecosystem. Attendees will have the opportunity to engage with innovative founders, learn from industry experts, and explore collaborative opportunities that can propel their businesses forward.
-                    </p>
+                    </Text>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
@@ -27,30 +30,27 @@ export default function TimelineComponent() {
                     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     icon={<MdDeviceHub />}
                 >
-                    <h3 className="vertical-timeline-element-title">Startup Bauchi Campus series 2.0</h3>
+                    <h3 className="vertical-timeline-element-title done">Startup Bauchi Campus series 2.0</h3>
                     <h4 className="vertical-timeline-element-subtitle">Bauchi, NG</h4>
-                    <p>
+                    <Text>
                         Featuring a diverse lineup of startups, this series serves as a vibrant hub for the local entrepreneurial ecosystem. Attendees will have the opportunity to engage with innovative founders, learn from industry experts, and explore collaborative opportunities that can propel their businesses forward.
-                    </p>
+                    </Text>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    date="November 2024"
+                    date="Coming soon"
                     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
                     icon={<MdDeviceHub />}
                 >
                     <h3 className="vertical-timeline-element-title">Ideation Bootcamp</h3>
                     <h4 className="vertical-timeline-element-subtitle">Bauchi, NG</h4>
-                    <p>
-
+                    <Text>
                         Unlock your creative potential and ignite your innovative mindset at our Ideation Bootcamp. This immersive, one-day event is designed to challenge your thinking, foster collaboration, and empower you to generate groundbreaking ideas.
-                    </p>
+                    </Text>
+                    <Link to={"/programs"}>
+                        <CustomSolidButton mt={20} buttonText="Join waitlist" />
+                    </Link>
                 </VerticalTimelineElement>
-
-                {/* <VerticalTimelineElement
-                    iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
-                    icon={<FaStar />}
-                /> */}
             </VerticalTimeline>
         </Box>
     )

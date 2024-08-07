@@ -1,8 +1,8 @@
 import { Carousel } from '@mantine/carousel';
 import { Paper, Title, Text, Stack } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
-import Image1 from "../../../assets/Images/sb-1.jpeg";
-import Image2 from "../../../assets/Images/sb-2.jpeg";
+import Image1 from "../../../assets/Images/gifting.jpg";
+import Image2 from "../../../assets/Images/NNIA.jpg";
 import Image3 from "../../../assets/Images/sb-3.jpeg";
 import classes from './Carousel.module.css';
 import { useRef } from 'react';

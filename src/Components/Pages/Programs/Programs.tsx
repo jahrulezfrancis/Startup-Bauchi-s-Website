@@ -33,17 +33,20 @@ export default function ProgramsPage() {
             <ProgramsRenderer showHoverContent showAll />
 
             <Space h={100} />
+            
             <Stack align="center">
                 <Title>Photo highlights from previous events</Title>
-                {
-                    eventMediaData.map((item) => {
-                        return (
-                            <Tooltip label={item.title}>
-                                <Image w={300} h={300} src={item.url} />
-                            </Tooltip>
-                        )
-                    })
-                }
+                <Flex mt={30} gap={20} justify={"center"} wrap={"wrap"}> 
+                    {
+                        eventMediaData.map((item) => {
+                            return (
+                                <Tooltip label={item.title}>
+                                    <Image w={300} h={300} src={"https://i.ibb.co/Tb4GXYc/DSC-0166.jpg"} />
+                                </Tooltip>
+                            )
+                        })
+                    }
+                </Flex>
             </Stack>
 
             <Space h={100} />

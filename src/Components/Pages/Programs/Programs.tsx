@@ -9,14 +9,15 @@ import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinU
 export default function ProgramsPage() {
 
     const eventMediaData = [
-        { id: 1, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/Tb4GXYc/DSC-0166.jpg" },
-        { id: 2, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/DrvycvG/DSC-0168-1.jpg" },
-        { id: 3, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/xL6ST8K/DSC-0169.jpg" },
-        { id: 4, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/w7yJRVJ/DSC-0174.jpg" },
-        { id: 5, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/4j7SDTD/DSC-0162.jpg" },
-        { id: 6, title: "Startup Bauchi Bootcamp 2023", url: "https://i.ibb.co/4thpyw8/DSC-0168.jpg" },
-        { id: 7, title: "Gitex africa ecosystem engagement", url: "https://i.ibb.co/Ss9G00d/IMG-20240302-WA0002.jpg" },
-        { id: 8, title: "Gitex africa ecosystem engagement", url: "https://i.ibb.co/1Grqf6x/IMG-20240302-WA0004.jpg" },
+        { id: 1, title: "Startup Bauchi Bootcamp 2023", url: "https://i.postimg.cc/8zngnnkk/DSC-0170.jpg" },
+        { id: 2, title: "Startup Bauchi Bootcamp 2023", url: "https://i.postimg.cc/d3D8n15V/DSC-0168.jpg" },
+        { id: 3, title: "Startup Bauchi Bootcamp 2023", url: "https://i.postimg.cc/PrYM7LtC/DSC-0171.jpg" },
+        { id: 4, title: "Startup Bauchi Bootcamp 2023", url: "https://i.postimg.cc/hGkWKz7H/DSC-0174.jpg" },
+        { id: 5, title: "Startup Bauchi Bootcamp 2023", url: "https://i.postimg.cc/rmD1NsnF/DSC-0175.jpg" },
+        { id: 8, title: "Gitex africa ecosystem engagement", url: "https://i.postimg.cc/nLkBJ75L/IMG-20240302-WA0004.jpg" },
+        { id: 9, title: "Gitex africa ecosystem engagement", url: "https://i.postimg.cc/RC8f4vPw/IMG-20240302-WA0006.jpg" },
+        { id: 6, title: "NNIA Ecosystem Development", url: "https://i.postimg.cc/6TJyR5SS/IMG-20231209-WA0053.jpg" },
+        { id: 7, title: "NNIA Ecosystem Development", url: "https://i.postimg.cc/nVs2vRgY/IMG-20231209-WA0054-1.jpg" },
     ]
     return (
         <Box maw={"100vw"} pt={20}>
@@ -33,15 +34,15 @@ export default function ProgramsPage() {
             <ProgramsRenderer showHoverContent showAll />
 
             <Space h={100} />
-            
+
             <Stack align="center">
                 <Title>Photo highlights from previous events</Title>
-                <Flex mt={30} gap={20} justify={"center"} wrap={"wrap"}> 
+                <Flex w={"90%"} mt={30} gap={20} align={"start"} justify={"center"} wrap={"wrap"}>
                     {
                         eventMediaData.map((item) => {
                             return (
-                                <Tooltip label={item.title}>
-                                    <Image w={300} h={300} src={"https://i.ibb.co/Tb4GXYc/DSC-0166.jpg"} />
+                                <Tooltip key={item.id} label={item.title}>
+                                    <Image fit="cover" miw={300} w={300} mah={200} src={item.url} />
                                 </Tooltip>
                             )
                         })

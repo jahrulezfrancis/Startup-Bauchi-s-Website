@@ -1,6 +1,5 @@
 import { Box, Stack, Title, Grid, Text, Flex, Space, Accordion } from "@mantine/core";
 import "../../../index.css"
-// import TestimonialsRenderer from "../../Reuseables/TestimonialRenderer";
 import { ashBg } from "../../Reuseables/Color";
 import "../../AnimationContainers/animations.css"
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
@@ -63,12 +62,7 @@ export default function AboutPage() {
 
                 <Space h={100} />
 
-                {/* <Stack>
-                    <Title ta={"center"}>What our clients say about us</Title>
-                    <TestimonialsRenderer />
-                </Stack> */}
 
-                <Space h={100} />
 
                 <FadeInOnScrollAnimationContainer children={
                     <Stack maw={"100vw"} align="center">

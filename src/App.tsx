@@ -61,9 +61,10 @@ export default function App() {
       <AppShell.Navbar py="md" px={4}>
         <Flex px={10} gap={10} direction="column">
           {navlinks.map((item) => {
+            const isActive = item.path === location.pathname;
             return (
-              <NavLink onClick={close} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                <Text p={10} fw={500} size='20px'>{item.name}</Text>
+              <NavLink className={isActive ? "active" : ""} onClick={close} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
+                <Text c={isActive ? "#046d63" : secondaryColor} p={10} fw={700} size='20px'>{item.name}</Text>
               </NavLink>
             )
           })}

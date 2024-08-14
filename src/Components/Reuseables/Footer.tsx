@@ -20,13 +20,12 @@ export default function FooterSection() {
                 <Grid.Col span={{ base: 12, md: 6, lg: 3 }}>
                     <Stack justify='start'>
                         <Title fw={500} c={"black"} ta={"start"}>Engage & Interact</Title>
-                        <Stack gap={1} justify="center">
+                        <Flex gap={15} justify="start">
                             <Tooltip mt={0} position="bottom" label="Join Telegram commnity">
                                 <Flex align={"center"} gap={5}>
                                     <Link to={""}>
                                         <FaTelegram color={secondaryColor} fontSize={30} />
                                     </Link>
-                                    <Text >Telegram</Text>
                                 </Flex>
                             </Tooltip>
 
@@ -35,7 +34,6 @@ export default function FooterSection() {
                                     <Link to={""}>
                                         <FaWhatsapp color={secondaryColor} fontSize={30} />
                                     </Link>
-                                    <Text >Whatsapp</Text>
                                 </Flex>
                             </Tooltip>
                             <Tooltip position="bottom" label="Join X community">
@@ -43,10 +41,9 @@ export default function FooterSection() {
                                     <Link to={""}>
                                         <FaXTwitter color={secondaryColor} fontSize={30} />
                                     </Link>
-                                    <Text >X </Text>
                                 </Flex>
                             </Tooltip>
-                        </Stack>
+                        </Flex>
                     </Stack>
                 </Grid.Col>
 
@@ -55,7 +52,7 @@ export default function FooterSection() {
                     <Flex align={"start"} justify={"start"} direction={"column"} gap={10}>
                         {navlinks.map((item) => {
                             return (
-                                <NavLink className={item.path === location.pathname ? "active" : ""} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
+                                <NavLink style={{ textDecoration: "none" }} key={item.id} to={item.path}>
                                     <Text ta={"start"} td={"underline"} c={"black"} size='18px' >{item.name}</Text>
                                 </NavLink>
                             )

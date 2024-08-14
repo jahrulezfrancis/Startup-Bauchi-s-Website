@@ -3,8 +3,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import "./timeline.styles.css"
 import { MdDeviceHub } from "react-icons/md";
-import { Link } from "react-router-dom";
-import CustomSolidButton from "./SolidButton";
+
 
 export default function TimelineComponent() {
     return (
@@ -47,9 +46,6 @@ export default function TimelineComponent() {
                     <Text>
                         Unlock your creative potential and ignite your innovative mindset at our Ideation Bootcamp. This immersive, one-day event is designed to challenge your thinking, foster collaboration, and empower you to generate groundbreaking ideas.
                     </Text>
-                    <Link to={"/programs"}>
-                        <CustomSolidButton mt={20} buttonText="Join waitlist" />
-                    </Link>
                 </VerticalTimelineElement>
             </VerticalTimeline>
         </Box>

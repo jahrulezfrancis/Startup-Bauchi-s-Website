@@ -52,7 +52,7 @@ export default function Homepage() {
                     </Grid.Col>
                 </Grid>
             </Flex>
-            <Space h={100} />
+            <Space h={30} />
         </Box>
     )
 }

@@ -36,7 +36,7 @@ export default function ProgramsPage() {
             <Space h={100} />
 
             <Stack align="center">
-                <Title>Photo highlights from previous events</Title>
+                <Title px={5} ta={"center"}>Photo highlights from previous events</Title>
                 <Flex w={"90%"} mt={30} gap={20} align={"start"} justify={"center"} wrap={"wrap"}>
                     {
                         eventMediaData.map((item) => {

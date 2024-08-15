@@ -33,7 +33,7 @@ export default function Homepage() {
                 <TimelineComponent />
             </Stack>
 
-            <Space h={20} />
+            <Space h={100} />
 
             <Flex direction={"column"} py={20} bg={ashBg} mx={"auto"}>
                 <Title my={20} ta={"center"}>Join Community</Title>

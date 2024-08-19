@@ -7,7 +7,7 @@ export default function StartupPage() {
     return (
         <Box pt={20}>
             <Stack>
-                <Title ta={"center"}>Join Startup Bauchi Community</Title>
+                <Title ta={"center"}>Join our Community</Title>
                 <StartupSignUpForm buttonText={"Join now"} showIcon={false} formPosition="center" />
             </Stack>
         </Box>

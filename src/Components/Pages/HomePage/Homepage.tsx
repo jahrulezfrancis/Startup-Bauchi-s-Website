@@ -1,6 +1,6 @@
 import { Box, Flex, Space, Stack, Text, Title, Grid, Image } from "@mantine/core";
 import CarouselComponent from "./Carousel";
-import AboutImage from "../../../assets/Images/sign-up.jpg";
+import AboutImage from "../../../assets/Images/gifting.jpg";
 import TimelineComponent from "../../Reuseables/TimelineComponent";
 import { ashBg } from "../../Reuseables/Color";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
@@ -42,7 +42,7 @@ export default function Homepage() {
                     <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
                         <FadeInOnScrollAnimationContainer children={
                             <Flex w={"100%"} justify={"center"}>
-                                <Image w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
+                                <Image  w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
                             </Flex>
                         } />
                     </Grid.Col>

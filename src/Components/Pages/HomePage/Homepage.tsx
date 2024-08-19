@@ -29,7 +29,7 @@ export default function Homepage() {
             <Space h={100} />
 
             <Stack py={10} bg={""} mx={20} style={{ borderRadius: 10, }} >
-                <Title py={10} ta={"center"}>Past and upcoming event highlights</Title>
+                <Title py={10} ta={"center"}>Past and upcoming events</Title>
                 <TimelineComponent />
             </Stack>
 
@@ -42,7 +42,7 @@ export default function Homepage() {
                     <Grid.Col span={{ base: 12, md: 12, lg: 6 }}>
                         <FadeInOnScrollAnimationContainer children={
                             <Flex w={"100%"} justify={"center"}>
-                                <Image  w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
+                                <Image radius={5} w={"80%"} ml={{ base: "0px", lg: "auto" }} src={AboutImage} />
                             </Flex>
                         } />
                     </Grid.Col>

@@ -14,8 +14,6 @@ export default function Homepage() {
         <Box style={{ boxSizing: "border-box", overflow: "hidden" }} >
             <CarouselComponent />
 
-            {/* Add section for about  */}
-
             <Space h={100} />
 
             <Stack>

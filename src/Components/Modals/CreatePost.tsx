@@ -28,13 +28,9 @@ export default function CreateNewPost() {
         createdAt: new Date().toUTCString()
     })
 
-console.log(postDetails.author)
-
-    // State to hold the uploaded files
     const [files, setFiles] = useState<UploadedFile[]>([]);
     const [uploading, setUploading] = useState(false);
 
-    // Handle files drop
     const handleDrop = (droppedFiles: File[]) => {
         const filesWithPreview = droppedFiles.map(file => ({
             ...file,
@@ -49,12 +45,9 @@ console.log(postDetails.author)
         featuredImage: postDetails.featuredImage,
         createdAt: postDetails.createdAt,
         author: "admin",
-        // images: images
-
     }
-   
 
-    // Function to upload files to Firebase
+
     const uploadFiles = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         setUploading(true);
@@ -69,7 +62,6 @@ console.log(postDetails.author)
             });
 
             const downloadURLs = await Promise.all(uploadPromises);
-            console.log('Uploaded files:', downloadURLs);
 
             addDoc(postRef, { ...documentData, images: downloadURLs },)
                 .then(() => {
@@ -77,9 +69,6 @@ console.log(postDetails.author)
                 }).catch((err) => {
                     notifications.show({ title: "Failed to add post", message: "An error occured: " + err + " and post upload could not be completed" })
                 })
-            // Here you can handle the downloadURLs, e.g., save them to your database along with the post
-
-            // Reset files after upload
             setFiles([]);
         } catch (err) {
             console.error(err);

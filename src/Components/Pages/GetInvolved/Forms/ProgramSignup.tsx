@@ -67,7 +67,6 @@ export default function ProgramSignUpForm() {
                 setLoading(false)
                 clearForm();
             } catch (error) {
-                console.error('Submission failed', error);
                 notifications.show({
                     title: "Registration Failed",
                     message: "Your Registration was not successful. Please try again",

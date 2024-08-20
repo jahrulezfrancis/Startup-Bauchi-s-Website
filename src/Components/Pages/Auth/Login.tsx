@@ -25,15 +25,12 @@ export default function LoginPage() {
         setIsLoading(true)
         signInWithEmailAndPassword(auth, authDetails.email, authDetails.password)
             .then((userCredential) => {
-                // Signed in 
                 setIsLoading(false)
-                console.log("Successfully login")
                 navigate("/admin")
                 const user = userCredential.user;
                 showNotification({ color: "teal", title: "login successful", message: "Redirecting...", autoClose: 1000 })
                 const token = user.getIdToken()
                 localStorage.setItem("auth-token", token.toString())
-                // ...
             })
             .catch((error) => {
                 setIsLoading(false)
@@ -45,7 +42,6 @@ export default function LoginPage() {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-        console.log(name + ":" + value)
         setAuthDetails((prevValue) => ({ ...prevValue, [name]: value }))
 
     }

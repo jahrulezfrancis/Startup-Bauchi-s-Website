@@ -3,7 +3,7 @@ import { Paper, Title, Text, Stack } from '@mantine/core';
 import Autoplay from 'embla-carousel-autoplay';
 import Image1 from "../../../assets/Images/gifting.jpg";
 import Image2 from "../../../assets/Images/NNIA.jpg";
-import Image3 from "../../../assets/Images/sb-3.jpeg";
+import Image3 from "../../../assets/Images/startups-showcase.jpg";
 import classes from './Carousel.module.css';
 import { useRef } from 'react';
 import { secondaryColor } from '../../Reuseables/Color';

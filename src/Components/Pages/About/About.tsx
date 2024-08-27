@@ -6,9 +6,13 @@ import "../../AnimationContainers/animations.css"
 import FadeInOnScrollAnimationContainer from "../../AnimationContainers/SlideinUp";
 import MissionAndVissionCard from "../../Reuseables/Cards/MissionAndVission";
 import ProgramsRenderer from "../../Renderers/ProgramRenderers";
+import { useMediaQuery } from "@mantine/hooks";
 
 
 export default function AboutPage() {
+
+    const mobileDevice = useMediaQuery('(max-width: 40em)');
+
     const faqList = [
         { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
         { id: "q2", question: "What is eligle to join startup Bauchi?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
@@ -32,16 +36,18 @@ export default function AboutPage() {
                 <Grid>
                     <Flex wrap={"wrap"} justify={"center"}>
 
-                        <GridCol span={{ base: 12, sm: 12, md: 5, lg: 5 }}>
-                            <Image radius={20} h={400} w={"100%"} src={AboutImage} />
+                        <GridCol mx={"auto"} span={{ base: 12, sm: 12, md: 5, lg: 5 }}>
+                            <Stack align={mobileDevice ? "center" : "flex-end"}>
+                                <Image w={{ base: "90%", sm: "90%", md: "90%", lg: "100%" }} radius={20} h={400} src={AboutImage} />
+                            </Stack>
                         </GridCol>
 
-                        <Space w={20} />
+                        {/* <Space w={20} /> */}
 
                         <GridCol span={{ base: 12, sm: 12, md: 5, lg: 5 }}>
                             <Stack style={{ animation: "bounceIn 2s ease 0s 1 normal forwards", }} h={"100%"} justify="space-around" align="start" >
-                                <Title order={2}>About us</Title>
-                                <Text lh={2}>
+                                <Title p={10} ta={{ base: "center", sm: "center", md: "center", lg: "left" }} order={2}>About us</Title>
+                                <Text ta={{ base: "center", sm: "center", md: "center", lg: "left" }} lh={2}>
                                     Startup Bauchi is a dynamic non-profit organization dedicated to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. Our mission is to transform innovative ideas into successful ventures by providing comprehensive support, resources, and guidance.
                                     Entrepreneurs in Bauchi often face significant challenges, including limited access to funding, a scarcity of experienced mentors, and a fragmented ecosystem. Startup Bauchi addresses these issues through a suite of tailored programs and services designed to bridge the gap between vision and success.
                                 </Text>

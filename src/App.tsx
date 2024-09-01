@@ -7,7 +7,7 @@ import AboutPage from "./Components/Pages/About/About";
 import ProgramsPage from "./Components/Pages/Programs/Programs";
 import ResourcesPage from "./Components/Pages/GetInvolved/GetInvolved";
 import PageNotFound from './Components/Pages/HomePage/404/PageNotFound';
-import BlogPage from './Components/Pages/Blog/Blog';
+// import BlogPage from './Components/Pages/Blog/Blog';
 import GetInvolvedPage from './Components/Pages/GetInvolved/GetInvolved';
 import StartupPage from './Components/Pages/Startups/Startups';
 import "./index.css"
@@ -61,9 +61,10 @@ export default function App() {
       <AppShell.Navbar py="md" px={4}>
         <Flex px={10} gap={10} direction="column">
           {navlinks.map((item) => {
+            const isActive = item.path === location.pathname;
             return (
-              <NavLink onClick={close} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
-                <Text p={10} fw={500} size='20px'>{item.name}</Text>
+              <NavLink className={isActive ? "active" : ""} onClick={close} style={{ textDecoration: "none" }} key={item.id} to={item.path}>
+                <Text c={isActive ? "#046d63" : secondaryColor} p={10} fw={700} size='20px'>{item.name}</Text>
               </NavLink>
             )
           })}
@@ -80,7 +81,7 @@ export default function App() {
           {/* resources route */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/programs" element={<ProgramsPage />} />
-          <Route path="/blog" element={<BlogPage />} />
+          {/* <Route path="/blog" element={<BlogPage />} /> */}
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path='/get-involved' element={<GetInvolvedPage />} />
           <Route path='/join-startup' element={<StartupPage />} />

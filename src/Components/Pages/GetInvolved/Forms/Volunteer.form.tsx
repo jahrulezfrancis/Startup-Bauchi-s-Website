@@ -51,8 +51,7 @@ export default function VolunteerSignUpForm() {
                         clearForm()
                         return notifications.show({ title: "Application sent successfully", message: "Your Application has been received successfully. Our team will get back to you within 48 hours. Regards", color: "teal", })
                     },
-                    (error) => {
-                        console.log('FAILED...', error.text);
+                    () => {
                         setIsloading(false)
                         return notifications.show({ title: "Registration Failed", message: "Your Application was not sent successfully. Please try again", color: "red" })
                     },

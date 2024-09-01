@@ -10,6 +10,7 @@ interface cardProps {
     description: string;
     index?: number;
     icon: ReactElement;
+    showHoverContent: boolean;
 }
 
 export default function ProgramsCard(props: cardProps) {
@@ -18,13 +19,18 @@ export default function ProgramsCard(props: cardProps) {
 
     function HoverContent() {
         return (
-            <Stack style={{ cursor: "pointer" }} justify="center" align="center">
-                <Title ta={"center"} size={"18px"}>Be a part of our {props.title}</Title>
-                <Text ta={"center"}>{props.description}</Text>
-                <Link to={"/program-signup"}>
-                    <CustomSolidButton onClick={() => localStorage.setItem("program", props.title)} c={incubation ? "" : "#ececec"} disabled={!incubation} bg={secondaryColor} w={"100%"} buttonText={incubation ? `Sign up for ${props.title}` : "Coming Soon"} />
-                </Link>
-            </Stack>
+            <>
+                {
+                    props.showHoverContent &&
+                    <Stack style={{ cursor: "pointer" }} justify="center" align="center">
+                        <Title ta={"center"} size={"18px"}>Be a part of our {props.title}</Title>
+                        <Text ta={"center"}>{props.description}</Text>
+                        <Link to={"/program-signup"}>
+                            <CustomSolidButton onClick={() => localStorage.setItem("program", props.title)} c={incubation ? "" : "#ececec"} disabled={!incubation} bg={secondaryColor} w={"100%"} buttonText={incubation ? `View all ${props.title} ${props.title.toLowerCase().includes("events") ? "" : "events"}` : "Coming Soon"} />
+                        </Link>
+                    </Stack>
+                }
+            </>
         )
     }
 
@@ -48,7 +54,7 @@ export default function ProgramsCard(props: cardProps) {
                 transition={{ type: 'spring', stiffness: 300 }}
                 viewport={{ once: false }}
             >
-                <Card onMouseLeave={() => setIsHover(false)} onMouseEnter={() => setIsHover(true)} mih={250} h={"auto"} w={{ base: "90vw", md: "400px", lg: "400px" }} p={"xl"} shadow=" 0px 0px 5px 1px #deddda" radius="md">
+                <Card onMouseLeave={() =>  setIsHover(false)} onMouseEnter={() => props.showHoverContent && setIsHover(true)} mih={300} h={"auto"} w={{ base: "90vw", md: "400px", lg: "400px" }} p={"xl"} shadow=" 0px 0px 5px 1px #deddda" radius="md">
                     {!IsHover &&
                         <Stack align="center">
                             {props.icon}
@@ -56,7 +62,7 @@ export default function ProgramsCard(props: cardProps) {
                             <Text ta="center" size="md">{props.description}</Text>
                         </Stack>
                     }
-                    {IsHover && <HoverContent />}
+                    {IsHover && props.showHoverContent && <HoverContent />}
                 </Card>
             </motion.div>
         </Box>

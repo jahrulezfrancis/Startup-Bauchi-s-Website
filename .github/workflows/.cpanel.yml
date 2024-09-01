@@ -19,9 +19,12 @@ jobs:
       
     - name: 🔨 Build Project
       run: |
-        npm install
-        npm run build
-    
+        yarn install
+        yarn build
+
+    - name: 🔍 Check Build Directory
+      run: ls -la ./dist 
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
@@ -29,4 +32,4 @@ jobs:
         username: ${{ secrets.GIT_CPANEL_FTP_USER }}
         password: ${{ secrets.GIT_CPANEL_PASSWORD_PWD }}
         protocol: ${{ secrets.GIT_CPANEL_FTP_PROTOCOL }}
-        local-dir: ./build/
+        local-dir: ./dist/

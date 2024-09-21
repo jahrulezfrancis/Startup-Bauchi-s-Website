@@ -20,6 +20,7 @@ export default function AboutPage() {
         { id: "q4", question: "What are the requirements for becoming a partner", answer: "To become a startup bauchi partner you neeed..." }
     ]
 
+
     const items = faqList.map((item) => (
         <Accordion.Item key={item.id} value={item.id}>
             <Accordion.Control>{item.question}</Accordion.Control>
@@ -30,28 +31,26 @@ export default function AboutPage() {
     return (
         <Box pt={20} style={{ overflow: "hidden" }}>
 
-            <Title mb={50} ta={"center"}>Get to know about startup Bauchi</Title>
-
             <Flex justify={"center"}>
                 <Grid>
                     <Flex wrap={"wrap"} justify={"center"}>
 
-                        <GridCol mx={"auto"} span={{ base: 12, sm: 12, md: 5, lg: 5 }}>
-                            <Stack align={mobileDevice ? "center" : "flex-end"}>
-                                <Image w={{ base: "90%", sm: "90%", md: "90%", lg: "100%" }} radius={20} h={400} src={AboutImage} />
+                        <GridCol mx={"auto"} span={{ base: 12, sm: 12, md: 6, lg: 6 }}>
+                            <Stack p={50} align={mobileDevice ? "center" : "flex-end"}>
+                                <Image w={{ base: "90%", sm: "90%", md: "90%", lg: "100%" }} radius={20} h={"200px"} src={AboutImage} />
                             </Stack>
                         </GridCol>
 
                         {/* <Space w={20} /> */}
 
-                        <GridCol span={{ base: 12, sm: 12, md: 5, lg: 5 }}>
-                            <Stack style={{ animation: "bounceIn 2s ease 0s 1 normal forwards", }} h={"100%"} justify="space-around" align="start" >
-                                <Title p={10} ta={{ base: "center", sm: "center", md: "center", lg: "left" }} order={2}>About us</Title>
-                                <Text ta={{ base: "center", sm: "center", md: "center", lg: "left" }} lh={2}>
+                        <GridCol span={{ base: 12, sm: 12, md: 6, lg: 6 }}>
+                            <Flex p={10} direction={"column"} style={{ animation: "bounceIn 2s ease 0s 1 normal forwards", }} h={"100%"} w={"100%"} justify="center" align={""}>
+                                <Title p={10} ta={{ base: "center", sm: "center", md: "center", lg: "left" }} order={2}>About Startup Bauchi</Title>
+                                <Text ta={{ base: "center", sm: "center", md: "center", lg: "left" }} lh={2.5}>
                                     Startup Bauchi is a dynamic non-profit organization dedicated to empowering aspiring entrepreneurs and early-stage startups in Bauchi State. Our mission is to transform innovative ideas into successful ventures by providing comprehensive support, resources, and guidance.
                                     Entrepreneurs in Bauchi often face significant challenges, including limited access to funding, a scarcity of experienced mentors, and a fragmented ecosystem. Startup Bauchi addresses these issues through a suite of tailored programs and services designed to bridge the gap between vision and success.
                                 </Text>
-                            </Stack>
+                            </Flex>
                         </GridCol>
                     </Flex>
                 </Grid>

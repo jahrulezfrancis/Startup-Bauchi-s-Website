@@ -11,5 +11,3 @@ const emailReceiver = import.meta.env.VITE_EMAIL_RECEIVER
 
 
 export { firebase_api_key, firebase_app_id, firebase_project_id, firebase_messaging_sender_id , emailReceiver, emailjs_pubkey, templateId, serviceKey}
-
-console.log( firebase_api_key, firebase_app_id, firebase_project_id, firebase_messaging_sender_id , emailReceiver, emailjs_pubkey, templateId, serviceKey)

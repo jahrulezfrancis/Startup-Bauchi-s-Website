@@ -1,6 +1,5 @@
 import { Box, Stack, Flex, Space, TextInput, Select } from "@mantine/core";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { FaHandsHelping } from "react-icons/fa";
 import emailjs from "@emailjs/browser"
 import { notifications } from "@mantine/notifications";
 import { secondaryColor } from "../../../Reuseables/Color";
@@ -43,7 +42,6 @@ export default function VolunteerSignUpForm() {
         const { name, email, phone, role } = formData;
         if (name && email && phone && role) {
             setIsloading(true)
-            // handle form submission
             emailjs.send(serviceKey, templateId, templateSheme, emailjs_pubkey)
                 .then(
                     () => {
@@ -65,10 +63,6 @@ export default function VolunteerSignUpForm() {
     return (
         <Box px={10} pt={20}>
             <Flex w={"100%"} direction={"column"} justify="center" align={{ base: "", md: "center" }}>
-                <Flex justify="center" gap={20} wrap="wrap">
-                    <FaHandsHelping fontSize={80} />
-                </Flex>
-                {/* <Space h={30} /> */}
                 <form onSubmit={handleFormSubmit}>
                     <Stack align="center" w={{ base: "90vw", md: "80vw", lg: "500px" }}>
 

@@ -19,7 +19,7 @@ export default function GetInvolvedPage() {
                     Whether you're looking to volunteer your time, share your expertise, or support our initiatives, there are many ways to get involved with Startup Bauchi.
                 </Text>
             </Stack>
-            <Tabs  p={10} value={activeTab} onChange={setActiveTab}>
+            <Tabs p={10} value={activeTab} onChange={setActiveTab}>
                 <Tabs.List justify="center">
                     <Tabs.Tab value="first">
                         <Text>Sign up as a partner</Text>

@@ -2,7 +2,6 @@ import { Box, Stack, Flex, Space, TextInput, Textarea } from "@mantine/core";
 import { doc, setDoc } from "firebase/firestore";
 import { ChangeEvent, FormEvent, useState } from "react";
 import emailjs from '@emailjs/browser';
-import { GoOrganization } from "react-icons/go";
 import { notifications } from "@mantine/notifications";
 import { secondaryColor } from "../../../Reuseables/Color";
 import CustomSolidButton from "../../../Reuseables/SolidButton";
@@ -88,11 +87,7 @@ export default function StartupSignUpForm(props: formProps) {
     return (
         <Box px={10} pt={20}>
             <Flex maw={"100vw"} direction={"column"} justify="center" align={{ base: "center", md: "center", lg: props.formPosition }}>
-                {props.showIcon &&
-                    <Flex justify="center" gap={20} wrap="wrap">
-                        <GoOrganization fontSize={80} />
-                    </Flex>
-                }
+              
                 <form onSubmit={handleFormSubmit}>
                     <Stack align="center" w={{ base: "90vw", md: "80vw", lg: "500px" }}>
 
@@ -100,7 +95,7 @@ export default function StartupSignUpForm(props: formProps) {
 
                         <TextInput w={"100%"} label="Company email address" radius={8} size="md" name="companyEmail" value={formData.companyEmail} onChange={handleChange} type="email" placeholder="Your Email" required />
 
-                        <Textarea w={"100%"} label="Message" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
+                        <Textarea w={"100%"} label="Message" placeholder="You can describe your partnership intent here" radius={8} size="md" value={formData.message} onChange={(event) => setFormData({ ...formData, message: event.currentTarget.value })} required resize="vertical" />
 
                         <CustomSolidButton bg={secondaryColor} loading={loading} mt={30} w={"100%"} radius={10} size="md" type="submit"
                             buttonText={props.buttonText ? props.buttonText : "Join now"} />

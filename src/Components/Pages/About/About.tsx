@@ -14,10 +14,10 @@ export default function AboutPage() {
     const mobileDevice = useMediaQuery('(max-width: 40em)');
 
     const faqList = [
-        { id: "q1", question: "What is startup bacuhi all about?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q2", question: "What is eligle to join startup Bauchi?", answer: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q3", question: "Is startup Bauchi a non-profit organization?", answer: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis temporibus possimus non sint dolorem tenetur blanditiis ducimus quos hic iusto. Fugit ab iure velit magnam labore alias vero saepe eligendi?" },
-        { id: "q4", question: "What are the requirements for becoming a partner", answer: "To become a startup bauchi partner you neeed..." }
+        { id: "q1", question: "What is startup bacuhi all about?", answer: "Startup Bauchi is a non-profit that empowers entrepreneurs and startups in Bauchi State by providing resources, mentorship, and support to help turn ideas into successful businesses." },
+        { id: "q2", question: "Who is eligle to join startup Bauchi?", answer: "Aspiring entrepreneurs, early-stage startups, and anyone with innovative ideas looking to grow their business in Bauchi State are eligible to join Startup Bauchi. We welcome individuals and teams passionate about entrepreneurship and innovation." },
+        { id: "q3", question: "Is startup Bauchi a non-profit organization?", answer: "Yes, Startup Bauchi is a non-profit organization dedicated to supporting entrepreneurs and startups in Bauchi State." },
+        { id: "q4", question: "What are the requirements for becoming a partner", answer: "To become a partner, you should share our mission of supporting entrepreneurship and innovation in Bauchi State. We look for organizations or individuals ready to contribute resources, expertise, or mentorship to help startups grow." }
     ]
 
 

@@ -6,5 +6,5 @@
 6 RewriteCond %{REQUEST_FILENAME} !-d
 7 RewriteCond %{REQUEST_FILENAME} !-1
 8 RewriteRule /index.html [L]
-9 </IfModule> I
+9 </IfModule>
 10

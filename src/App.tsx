@@ -34,7 +34,7 @@ export default function App() {
       navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: true, mobile: !opened } }}
       padding="md"
     >
-      <AppShell.Header maw={"100vw"}>
+      <AppShell.Header bg={"rgba(255, 255, 255, .9)"} style={{backdropFilter: "blur(80px)"}} maw={"100vw"}>
         <Group h="100%" px="md">
           <Burger right={20} pos={'absolute'} opened={opened} onClick={toggle} hiddenFrom="sm" size="md" />
           <Group style={{ flex: 1 }} justify="space-between">
@@ -48,7 +48,7 @@ export default function App() {
                   const activeLink = item.path === location.pathname;
                   return (
                     <NavLink className={activeLink ? "active" : ""} key={item.id} to={item.path}>
-                      <Text fw={activeLink ? 900 : 700} c={activeLink ? "#046d63" : secondaryColor} style={{ textDecoration: "none" }} size='18px' >{item.name}</Text>
+                      <Text fw={activeLink ? 900 : 700} c={activeLink ? "#046d63" : secondaryColor} style={{ zIndex: 10, textDecoration: "none" }} size='18px' >{item.name}</Text>
                     </NavLink>
                   )
                 })}
